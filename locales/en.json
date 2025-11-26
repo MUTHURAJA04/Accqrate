@@ -1,0 +1,34 @@
+{
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your account",
+    "email": "Email",
+    "password": "Password",
+    "button": "Login",
+    "success": "Login Successful",
+    "noAccountRegister": "Don't have an account? Register"
+  },
+  "register": {
+    "title": "Create Account",
+    "subtitle": "Sign up to get started",
+    "name": "Name",
+    "email": "Email",
+    "button": "Get OTP",
+    "success": "OTP Sent Successfully",
+    "haveAccountLogin": "Already have an account? Login",
+    "otpSent": "An OTP has been sent to {{email}}"
+  },
+  "errors": {
+    "invalidEmail": "Enter a valid email",
+    "shortPassword": "Password must be at least 6 characters",
+    "requiredName": "Name is required",
+    "requiredEmail": "Email is required",
+    "requiredPassword": "Password is required"
+  },
+  "common": {
+    "continue": "Continue",
+    "back": "Back",
+    "submit": "Submit",
+    "cancel": "Cancel"
+  }
+}

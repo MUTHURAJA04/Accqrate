@@ -1,0 +1,14 @@
+{
+  "login": {
+    "title": "Bon retour",
+    "subtitle": "Connectez-vous à votre compte",
+    "email": "Email",
+    "password": "Mot de passe",
+    "button": "Connexion",
+    "success": "Connexion réussie"
+  },
+  "errors": {
+    "invalidEmail": "Entrez un e-mail valide",
+    "shortPassword": "Le mot de passe doit contenir au moins 6 caractères"
+  }
+}
