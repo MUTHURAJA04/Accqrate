@@ -8,6 +8,10 @@ import Langauage from '../Screens/Langauage';
 import Login from '../Screens/Login';
 import Register from '../Screens/Register';
 import Otp from '../Screens/Otp';
+import Companyinfo from '../Screens/Companyinfo';
+import RegistrationSuccess from '../Screens/RegistrationSuccess';
+
+
 
 
 
@@ -32,6 +36,8 @@ const LayoutNavigator = () => {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Otp" component={Otp} />
+      <Stack.Screen name="Companyinfo" component={Companyinfo} />
+      <Stack.Screen name="RegistrationSuccess" component={RegistrationSuccess} />
       <Stack.Screen name="Profile" component={withLayout(Profile)} />
     
     </Stack.Navigator>

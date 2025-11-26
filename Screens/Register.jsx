@@ -37,7 +37,7 @@ const Register = () => {
         t("register.otpSent", { email: email })
       );
     }
-    navigation.navigate('Otp');
+    navigation.navigate('Otp',{ email: email });
   };
 
   return (

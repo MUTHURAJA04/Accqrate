@@ -18,17 +18,55 @@
     "haveAccountLogin": "Already have an account? Login",
     "otpSent": "An OTP has been sent to {{email}}"
   },
+  "otp": {
+    "title": "OTP Verification",
+    "instruction": "We have sent the OTP to your email address",
+    "additionalInstruction": "Please check your inbox and enter the 6-digit OTP below to complete your company setup",
+    "resendText": "Didn't receive the code?",
+    "resendButton": "Resend OTP",
+    "verifyButton": "Verify OTP"
+  },
+  "companyInfo": {
+    "title": "Company Information",
+    "subtitle": "Complete your company profile to get started",
+    "companyName": "Company name",
+    "phoneNumber": "Phone number",
+    "vatNumber": "VAT number",
+    "country": "Country",
+    "currency": "Currency",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "createAccount": "Create Account",
+    "terms": "By creating an account, you agree to our Terms of Service and Privacy Policy",
+    "selectCountry": "Select Country",
+    "selectCurrency": "Select Currency",
+    "cancel": "Cancel"
+  },
+  "language": {
+    "title": "Select Language",
+    "subtitle": "Choose your preferred language for the application",
+    "continue": "Continue"
+  },
   "errors": {
     "invalidEmail": "Enter a valid email",
     "shortPassword": "Password must be at least 6 characters",
     "requiredName": "Name is required",
     "requiredEmail": "Email is required",
-    "requiredPassword": "Password is required"
+    "requiredPassword": "Password is required",
+    "requiredCompanyName": "Company name is required",
+    "requiredPhone": "Phone number is required",
+    "invalidPhone": "Enter a valid phone number",
+    "requiredVat": "VAT number is required",
+    "requiredCountry": "Country is required",
+    "requiredCurrency": "Currency is required",
+    "passwordMismatch": "Passwords do not match"
   },
   "common": {
     "continue": "Continue",
     "back": "Back",
     "submit": "Submit",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "verify": "Verify",
+    "next": "Next"
   }
 }

@@ -4,11 +4,69 @@
     "subtitle": "Melden Sie sich bei Ihrem Konto an",
     "email": "E-Mail",
     "password": "Passwort",
-    "button": "Einloggen",
-    "success": "Login erfolgreich"
+    "button": "Anmelden",
+    "success": "Anmeldung erfolgreich",
+    "noAccountRegister": "Noch kein Konto? Registrieren"
+  },
+  "register": {
+    "title": "Konto erstellen",
+    "subtitle": "Registrieren Sie sich, um zu beginnen",
+    "name": "Name",
+    "email": "E-Mail",
+    "button": "OTP erhalten",
+    "success": "OTP erfolgreich gesendet",
+    "haveAccountLogin": "Bereits ein Konto? Anmelden",
+    "otpSent": "Ein OTP wurde an {{email}} gesendet"
+  },
+  "otp": {
+    "title": "OTP-Verifizierung",
+    "instruction": "Wir haben das OTP an Ihre E-Mail-Adresse gesendet",
+    "additionalInstruction": "Bitte überprüfen Sie Ihren Posteingang und geben Sie den 6-stelligen OTP unten ein, um die Einrichtung Ihres Unternehmens abzuschließen",
+    "resendText": "Code nicht erhalten?",
+    "resendButton": "OTP erneut senden",
+    "verifyButton": "OTP verifizieren"
+  },
+  "companyInfo": {
+    "title": "Firmeninformationen",
+    "subtitle": "Vervollständigen Sie Ihr Unternehmensprofil, um zu beginnen",
+    "companyName": "Firmenname",
+    "phoneNumber": "Telefonnummer",
+    "vatNumber": "Umsatzsteuer-Identifikationsnummer",
+    "country": "Land",
+    "currency": "Währung",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "createAccount": "Konto erstellen",
+    "terms": "Durch die Erstellung eines Kontos stimmen Sie unseren Nutzungsbedingungen und Datenschutzrichtlinien zu",
+    "selectCountry": "Land auswählen",
+    "selectCurrency": "Währung auswählen",
+    "cancel": "Abbrechen"
+  },
+  "language": {
+    "title": "Sprache auswählen",
+    "subtitle": "Wählen Sie Ihre bevorzugte Sprache für die Anwendung",
+    "continue": "Weiter"
   },
   "errors": {
     "invalidEmail": "Geben Sie eine gültige E-Mail-Adresse ein",
-    "shortPassword": "Passwort muss mindestens 6 Zeichen lang sein"
+    "shortPassword": "Passwort muss mindestens 6 Zeichen lang sein",
+    "requiredName": "Name ist erforderlich",
+    "requiredEmail": "E-Mail ist erforderlich",
+    "requiredPassword": "Passwort ist erforderlich",
+    "requiredCompanyName": "Firmenname ist erforderlich",
+    "requiredPhone": "Telefonnummer ist erforderlich",
+    "invalidPhone": "Geben Sie eine gültige Telefonnummer ein",
+    "requiredVat": "Umsatzsteuer-Identifikationsnummer ist erforderlich",
+    "requiredCountry": "Land ist erforderlich",
+    "requiredCurrency": "Währung ist erforderlich",
+    "passwordMismatch": "Passwörter stimmen nicht überein"
+  },
+  "common": {
+    "continue": "Weiter",
+    "back": "Zurück",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "verify": "Verifizieren",
+    "next": "Weiter"
   }
 }

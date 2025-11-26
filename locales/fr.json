@@ -2,13 +2,71 @@
   "login": {
     "title": "Bon retour",
     "subtitle": "Connectez-vous à votre compte",
-    "email": "Email",
+    "email": "E-mail",
     "password": "Mot de passe",
-    "button": "Connexion",
-    "success": "Connexion réussie"
+    "button": "Se connecter",
+    "success": "Connexion réussie",
+    "noAccountRegister": "Vous n'avez pas de compte ? S'inscrire"
+  },
+  "register": {
+    "title": "Créer un compte",
+    "subtitle": "Inscrivez-vous pour commencer",
+    "name": "Nom",
+    "email": "E-mail",
+    "button": "Obtenir OTP",
+    "success": "OTP envoyé avec succès",
+    "haveAccountLogin": "Vous avez déjà un compte ? Se connecter",
+    "otpSent": "Un OTP a été envoyé à {{email}}"
+  },
+  "otp": {
+    "title": "Vérification OTP",
+    "instruction": "Nous avons envoyé l'OTP à votre adresse e-mail",
+    "additionalInstruction": "Veuillez vérifier votre boîte de réception et entrer l'OTP à 6 chiffres ci-dessous pour compléter la configuration de votre entreprise",
+    "resendText": "Vous n'avez pas reçu le code ?",
+    "resendButton": "Renvoyer OTP",
+    "verifyButton": "Vérifier OTP"
+  },
+  "companyInfo": {
+    "title": "Informations de l'entreprise",
+    "subtitle": "Complétez votre profil d'entreprise pour commencer",
+    "companyName": "Nom de l'entreprise",
+    "phoneNumber": "Numéro de téléphone",
+    "vatNumber": "Numéro de TVA",
+    "country": "Pays",
+    "currency": "Devise",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "createAccount": "Créer un compte",
+    "terms": "En créant un compte, vous acceptez nos Conditions d'utilisation et Politique de confidentialité",
+    "selectCountry": "Sélectionner un pays",
+    "selectCurrency": "Sélectionner une devise",
+    "cancel": "Annuler"
+  },
+  "language": {
+    "title": "Sélectionner la langue",
+    "subtitle": "Choisissez votre langue préférée pour l'application",
+    "continue": "Continuer"
   },
   "errors": {
     "invalidEmail": "Entrez un e-mail valide",
-    "shortPassword": "Le mot de passe doit contenir au moins 6 caractères"
+    "shortPassword": "Le mot de passe doit contenir au moins 6 caractères",
+    "requiredName": "Le nom est requis",
+    "requiredEmail": "L'e-mail est requis",
+    "requiredPassword": "Le mot de passe est requis",
+    "requiredCompanyName": "Le nom de l'entreprise est requis",
+    "requiredPhone": "Le numéro de téléphone est requis",
+    "invalidPhone": "Entrez un numéro de téléphone valide",
+    "requiredVat": "Le numéro de TVA est requis",
+    "requiredCountry": "Le pays est requis",
+    "requiredCurrency": "La devise est requise",
+    "passwordMismatch": "Les mots de passe ne correspondent pas"
+  },
+  "common": {
+    "continue": "Continuer",
+    "back": "Retour",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "verify": "Vérifier",
+    "next": "Suivant"
   }
 }

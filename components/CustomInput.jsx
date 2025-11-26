@@ -68,7 +68,10 @@ const Input = ({
           </View>
         )}
 
-        <Animated.Text style={labelStyle}>
+        <Animated.Text
+          pointerEvents="none"
+          style={labelStyle}
+        >
           {placeholder}
         </Animated.Text>
 
@@ -87,8 +90,10 @@ const Input = ({
             fontSize: 16,
             // Center text vertically
             paddingVertical: Platform.OS === 'android' ? 12 : 14,
-            includeFontPadding: false, // This removes extra padding on Android
-            textAlignVertical: 'center', // Center text vertically
+            includeFontPadding: false,
+            textAlignVertical: 'center',
+            zIndex: 20,           // <-- Fix: ensure TextInput is above label
+            backgroundColor: 'transparent', // <-- Fix: transparent background
           }}
         />
 

@@ -13,13 +13,21 @@ import { changeLanguage } from '../i18n';
 const languages = [
   { code: 'en', label: 'English', image: require('../asstes/English.png') },
   { code: 'ar', label: 'Arabic', image: require('../asstes/Arabic.png') },
-  { code: 'de', label: 'German', image: require('../asstes/German.png') },
   { code: 'fr', label: 'French', image: require('../asstes/French.png') },
+  { code: 'de', label: 'German', image: require('../asstes/German.png') },
 ];
 
 const Language = () => {
   const [selected, setSelected] = useState('en');
   const navigation = useNavigation();
+
+  // Define explicit order you want
+  const order = ['en', 'ar', 'fr', 'de'];
+
+  // Create a NEW sorted array, don't sort original in place
+  const sortedLanguages = [...languages].sort(
+    (a, b) => order.indexOf(a.code) - order.indexOf(b.code)
+  );
 
   const onSelectLanguage = async (code) => {
     setSelected(code);
@@ -42,7 +50,7 @@ const Language = () => {
       <Text className="text-2xl font-bold mb-10">Select Language</Text>
 
       <View className="w-full max-w-md flex-row flex-wrap justify-center">
-        {languages.map(({ code, label, image }, index) => (
+        {sortedLanguages.map(({ code, label, image }, index) => (
           <TouchableOpacity
             key={code}
             onPress={() => onSelectLanguage(code)}
@@ -51,7 +59,7 @@ const Language = () => {
               w-[48%] aspect-[1.1] bg-white rounded-md border
               items-center justify-center pt-4 pb-4 px-3
               mb-6
-              ${ (index + 1) % 2 === 0 ? '' : 'mr-3'} 
+              ${(index + 1) % 2 === 0 ? '' : 'mr-3'}
               ${selected === code ? 'border-black border-2' : 'border-gray-300 border'}
             `}
           >

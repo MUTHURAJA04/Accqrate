@@ -5,10 +5,68 @@
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
     "button": "تسجيل الدخول",
-    "success": "تم تسجيل الدخول بنجاح"
+    "success": "تم تسجيل الدخول بنجاح",
+    "noAccountRegister": "ليس لديك حساب؟ سجل الآن"
+  },
+  "register": {
+    "title": "إنشاء حساب",
+    "subtitle": "سجل للبدء",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "button": "احصل على رمز التحقق",
+    "success": "تم إرسال رمز التحقق بنجاح",
+    "haveAccountLogin": "لديك حساب بالفعل؟ سجل الدخول",
+    "otpSent": "تم إرسال رمز التحقق إلى {{email}}"
+  },
+  "otp": {
+    "title": "التحقق برمز التحقق",
+    "instruction": "لقد أرسلنا رمز التحقق إلى بريدك الإلكتروني",
+    "additionalInstruction": "يرجى فحص صندوق الوارد وإدخال رمز التحقق المكون من 6 أرقام لإكمال إعداد شركتك",
+    "resendText": "لم تستلم الرمز؟",
+    "resendButton": "إعادة إرسال رمز التحقق",
+    "verifyButton": "تحقق من رمز التحقق"
+  },
+  "companyInfo": {
+    "title": "معلومات الشركة",
+    "subtitle": "أكمل ملف شركتك للبدء",
+    "companyName": "اسم الشركة",
+    "phoneNumber": "رقم الهاتف",
+    "vatNumber": "رقم الضريبة",
+    "country": "الدولة",
+    "currency": "العملة",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "createAccount": "إنشاء حساب",
+    "terms": "بإنشاء حساب، فإنك توافق على شروط الخدمة وسياسة الخصوصية",
+    "selectCountry": "اختر الدولة",
+    "selectCurrency": "اختر العملة",
+    "cancel": "إلغاء"
+  },
+  "language": {
+    "title": "اختر اللغة",
+    "subtitle": "اختر اللغة المفضلة للتطبيق",
+    "continue": "متابعة"
   },
   "errors": {
-    "invalidEmail": "أدخل بريد إلكتروني صالح",
-    "shortPassword": "يجب أن تكون كلمة المرور 6 أحرف على الأقل"
+    "invalidEmail": "أدخل بريد إلكتروني صحيح",
+    "shortPassword": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    "requiredName": "الاسم مطلوب",
+    "requiredEmail": "البريد الإلكتروني مطلوب",
+    "requiredPassword": "كلمة المرور مطلوبة",
+    "requiredCompanyName": "اسم الشركة مطلوب",
+    "requiredPhone": "رقم الهاتف مطلوب",
+    "invalidPhone": "أدخل رقم هاتف صحيح",
+    "requiredVat": "رقم الضريبة مطلوب",
+    "requiredCountry": "الدولة مطلوبة",
+    "requiredCurrency": "العملة مطلوبة",
+    "passwordMismatch": "كلمات المرور غير متطابقة"
+  },
+  "common": {
+    "continue": "متابعة",
+    "back": "رجوع",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "verify": "تحقق",
+    "next": "التالي"
   }
 }

@@ -8,7 +8,7 @@ export default function Landing() {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.navigate('Langauage'); // Navigate after 3 seconds
-    }, 3000);
+    }, 1000);
 
     // Cleanup timer if component unmounts early
     return () => clearTimeout(timer);
