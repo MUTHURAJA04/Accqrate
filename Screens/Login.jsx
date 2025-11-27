@@ -33,6 +33,7 @@ const Login = () => {
 
     if (valid) {
       alert(`${t("login.success")}\n${email}`);
+      navigation.navigate('DashBoard')  
     }
   };
 

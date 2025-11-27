@@ -124,10 +124,10 @@ const Companyinfo = () => {
   };
 
   const handleSubmit = () => {
-    if (validateForm()) {
+    // if (validateForm()) {
       console.log('Form submitted:', formData);
       navigation.navigate('RegistrationSuccess');
-    }
+    // }
   };
 
   const renderCountryItem = ({ item }) => (
