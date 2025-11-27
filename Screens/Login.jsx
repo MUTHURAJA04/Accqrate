@@ -31,10 +31,10 @@ const Login = () => {
       setPasswordError('');
     }
 
-    if (valid) {
+    // if (valid) {
       alert(`${t("login.success")}\n${email}`);
       navigation.navigate('DashBoard')  
-    }
+    // }
   };
 
   return (
