@@ -1,20 +1,27 @@
 import React from 'react';
 import { View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context'; // <--- updated import
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from './Header';
 import Bottom from './Bottom';
 
-const Layout = ({ children, showHeader = true, showBottom = true }) => {
+const Layout = ({
+  children,
+  showHeader = true,
+  showBottom = true,
+  headerComponent: CustomHeader,   // optional: allow custom header
+  bottomComponent: CustomBottom    // optional: allow custom bottom
+}) => {
   return (
     <SafeAreaView className="flex-1 bg-white" edges={['top', 'bottom']}>
+
       {/* Header */}
       {showHeader && (
         <View className="w-full">
-          <Header />
+          {CustomHeader ? <CustomHeader /> : <Header />}
         </View>
       )}
 
-      {/* Main content */}
+      {/* Body */}
       <View className="flex-1">
         {children}
       </View>
@@ -22,9 +29,10 @@ const Layout = ({ children, showHeader = true, showBottom = true }) => {
       {/* Bottom Navigation */}
       {showBottom && (
         <View className="w-full">
-          <Bottom />
+          {CustomBottom ? <CustomBottom /> : <Bottom />}
         </View>
       )}
+
     </SafeAreaView>
   );
 };

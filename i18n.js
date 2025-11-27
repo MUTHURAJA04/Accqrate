@@ -11,7 +11,6 @@ import fr from "./locales/fr.json";
 
 const LANG_KEY = "appLanguage";
 
-// Define the order explicitly here:
 const resourcesArray = [
   { code: "en", resource: en },
   { code: "ar", resource: ar },
@@ -26,38 +25,45 @@ resourcesArray.forEach(({ code, resource }) => {
 });
 
 export const setI18nConfig = async () => {
-  console.log("RNLocalize keys:", Object.keys(RNLocalize));
-  console.log("findBestAvailableLanguage:", RNLocalize.findBestAvailableLanguage);
-  console.log("findBestLanguageTag:", RNLocalize.findBestLanguageTag);
+  try {
+    const savedLang = await AsyncStorage.getItem(LANG_KEY);
+    const fallback = "en";
 
-  const savedLang = await AsyncStorage.getItem(LANG_KEY);
+    // Use findBestLanguageTag (string) - returns best matching tag or null
+    const bestLanguageTag = RNLocalize.findBestLanguageTag(Object.keys(resources)) || null;
 
-  const fallback = "en";
+    // Determine language: savedLang > best detected > fallback
+    const defaultLang = savedLang || bestLanguageTag || fallback;
 
-  // findBestAvailableLanguage is deprecated / removed in your version,
-  // use findBestLanguageTag instead:
-  const best = RNLocalize.findBestLanguageTag(Object.keys(resources)) || null;
+    console.log("Detected language:", defaultLang);
 
-  // best will be string or null
-  const defaultLang = savedLang || best || fallback;
+    // Set RTL if Arabic
+    const isRTL = defaultLang === "ar";
+    I18nManager.allowRTL(isRTL);
+    I18nManager.forceRTL(isRTL);
 
-  const isRTL = defaultLang === "ar";
-  I18nManager.allowRTL(isRTL);
-  I18nManager.forceRTL(isRTL);
+    await i18n
+      .use(initReactI18next)
+      .init({
+        resources,
+        lng: defaultLang,
+        fallbackLng: fallback,
+        interpolation: {
+          escapeValue: false,
+        },
+      });
 
-  await i18n.use(initReactI18next).init({
-    resources,
-    lng: defaultLang,
-    fallbackLng: fallback,
-    interpolation: {
-      escapeValue: false,
-    },
-  });
-
-  console.log("i18n initialized, loaded languages:", Object.keys(resources));
+    console.log("i18n initialized with languages:", Object.keys(resources));
+  } catch (error) {
+    console.error("Error initializing i18n:", error);
+  }
 };
 
 export const changeLanguage = async (lang) => {
+  if (!lang || typeof lang !== "string") {
+    console.warn("changeLanguage: invalid language code", lang);
+    return;
+  }
   await AsyncStorage.setItem(LANG_KEY, lang);
   await i18n.changeLanguage(lang);
 };

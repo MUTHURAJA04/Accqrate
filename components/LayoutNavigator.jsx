@@ -10,6 +10,9 @@ import Register from '../Screens/Register';
 import Otp from '../Screens/Otp';
 import Companyinfo from '../Screens/Companyinfo';
 import RegistrationSuccess from '../Screens/RegistrationSuccess';
+import PricingPlans from '../Screens/PricingPlans';
+import DashBoard from '../Screens/DashBoard';
+import Payment from '../Screens/Payment';
 
 
 
@@ -30,7 +33,8 @@ const withLayout =
 
 const LayoutNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+   <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {/* Screens without layout */}
       <Stack.Screen name="Landing" component={Landing} />
       <Stack.Screen name="Langauage" component={Langauage} />
       <Stack.Screen name="Login" component={Login} />
@@ -38,8 +42,13 @@ const LayoutNavigator = () => {
       <Stack.Screen name="Otp" component={Otp} />
       <Stack.Screen name="Companyinfo" component={Companyinfo} />
       <Stack.Screen name="RegistrationSuccess" component={RegistrationSuccess} />
-      <Stack.Screen name="Profile" component={withLayout(Profile)} />
-    
+      <Stack.Screen name="PricingPlans" component={PricingPlans} />
+      <Stack.Screen name="Payment" component={Payment}/>
+
+      {/* Screens WITH layout */}
+      <Stack.Screen  name="DashBoard" component={withLayout(DashBoard, { showHeader: true, showBottom: true })}/>
+      <Stack.Screen  name="Profile" component={withLayout(Profile, { showHeader: true, showBottom: false })}/>
+      
     </Stack.Navigator>
   );
 };
