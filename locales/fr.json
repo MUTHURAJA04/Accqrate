@@ -6,7 +6,7 @@
     "password": "Mot de passe",
     "button": "Se connecter",
     "success": "Connexion réussie",
-    "noAccountRegister": "Vous n'avez pas de compte ? S'inscrire"
+    "noAccountRegister": "Pas de compte ? S'inscrire"
   },
   "register": {
     "title": "Créer un compte",
@@ -15,7 +15,7 @@
     "email": "E-mail",
     "button": "Obtenir OTP",
     "success": "OTP envoyé avec succès",
-    "haveAccountLogin": "Vous avez déjà un compte ? Se connecter",
+    "haveAccountLogin": "Déjà un compte ? Se connecter",
     "otpSent": "Un OTP a été envoyé à {{email}}"
   },
   "otp": {
@@ -47,9 +47,43 @@
     "subtitle": "Choisissez votre langue préférée pour l'application",
     "continue": "Continuer"
   },
+  "registrationSuccess": {
+    "title": "Merci pour l'inscription",
+    "trialEnds": "Votre essai gratuit de 30 jours se termine le",
+    "checkPricing": "Vérifier les tarifs",
+    "pricingDescription": "Consultez les différents plans disponibles et choisissez le meilleur pour vous"
+  },
+  "pricingPlans": {
+    "title": "Choisissez votre forfait",
+    "subtitle": "Sélectionnez le forfait qui convient le mieux à votre entreprise",
+    "basic": {
+      "name": "Basique",
+      "price": "5$",
+      "terminals": "1 Terminal"
+    },
+    "standard": {
+      "name": "Standard",
+      "price": "10$",
+      "terminals": "3 Terminaux"
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "15$",
+      "terminals": "5 Terminaux"
+    }
+  },
+  "payment": {
+    "cardLabel": "CARTE",
+    "cardPlaceholder": "1234 56XX XXXX XXXX",
+    "cardNumberPlaceholder": "Numéro de carte",
+    "expiryPlaceholder": "MM/AA",
+    "cvvPlaceholder": "CVV",
+    "cardHolderPlaceholder": "Nom du titulaire",
+    "payButton": "Payer sécurisé"
+  },
   "errors": {
     "invalidEmail": "Entrez un e-mail valide",
-    "shortPassword": "Le mot de passe doit contenir au moins 6 caractères",
+    "shortPassword": "Le mot de passe doit comporter au moins 6 caractères",
     "requiredName": "Le nom est requis",
     "requiredEmail": "L'e-mail est requis",
     "requiredPassword": "Le mot de passe est requis",
@@ -67,6 +101,55 @@
     "submit": "Soumettre",
     "cancel": "Annuler",
     "verify": "Vérifier",
-    "next": "Suivant"
+    "next": "Suivant",
+    "skip": "Passer"
+  },
+  "quickActions": {
+    "title": "Actions Rapides",
+    "profile": "Profil",
+    "onboard": "Intégration",
+    "setup": "Configuration",
+    "sales": "Ventes",
+    "subscription": "Abonnement",
+    "swipeToClose": "Glisser à gauche pour fermer"
+  },
+  "profile": {
+    "myProfile": {
+      "title": "Mon Profil",
+      "subtitle": "Mettez à jour votre profil avec vos détails",
+      "name": "Nom",
+      "email": "E-mail",
+      "phoneNumber": "Numéro de téléphone",
+      "role": "Rôle",
+      "photo": "Photo",
+      "language": "Langue",
+      "save": "Enregistrer",
+      "namePlaceholder": "Entrez votre nom",
+      "emailPlaceholder": "Entrez votre e-mail",
+      "phonePlaceholder": "Entrez votre numéro de téléphone",
+      "rolePlaceholder": "Entrez votre rôle",
+      "photoPlaceholder": "Entrez l'URL de votre photo",
+      "languagePlaceholder": "Entrez votre langue"
+    },
+    "companyProfile": {
+      "title": "Profil de l'entreprise",
+      "subtitle": "Mettez à jour les détails de votre entreprise en cas de changement"
+    },
+    "changePassword": {
+      "title": "Changer le mot de passe",
+      "subtitle": "Si vous souhaitez changer votre mot de passe, cliquez ici",
+      "newPassword": "Entrez le nouveau mot de passe",
+      "confirmPassword": "Confirmez le nouveau mot de passe",
+      "save": "Enregistrer",
+      "passwordMismatch": "Les mots de passe ne correspondent pas!"
+    }
+  },
+  "landing": {
+    "appName": "Accqrate",
+    "tagline": "Solutions de facturation électronique et ERP"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "swipeHint": "Glisser vers la droite pour ouvrir les actions rapides"
   }
 }

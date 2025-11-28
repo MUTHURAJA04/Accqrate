@@ -37,10 +37,9 @@ export const setI18nConfig = async () => {
 
     console.log("Detected language:", defaultLang);
 
-    // Set RTL if Arabic
-    const isRTL = defaultLang === "ar";
-    I18nManager.allowRTL(isRTL);
-    I18nManager.forceRTL(isRTL);
+    // Disable RTL completely for all languages including Arabic
+    I18nManager.allowRTL(false);
+    I18nManager.forceRTL(false);
 
     await i18n
       .use(initReactI18next)
@@ -51,9 +50,11 @@ export const setI18nConfig = async () => {
         interpolation: {
           escapeValue: false,
         },
+        compatibilityJSON: 'v3', // Add this for better React Native support
       });
 
     console.log("i18n initialized with languages:", Object.keys(resources));
+    console.log("RTL disabled for all languages");
   } catch (error) {
     console.error("Error initializing i18n:", error);
   }
@@ -64,8 +65,19 @@ export const changeLanguage = async (lang) => {
     console.warn("changeLanguage: invalid language code", lang);
     return;
   }
-  await AsyncStorage.setItem(LANG_KEY, lang);
-  await i18n.changeLanguage(lang);
+  
+  try {
+    // Disable RTL when changing language as well
+    I18nManager.allowRTL(false);
+    I18nManager.forceRTL(false);
+    
+    await AsyncStorage.setItem(LANG_KEY, lang);
+    await i18n.changeLanguage(lang);
+    
+    console.log(`Language changed to: ${lang}, RTL disabled`);
+  } catch (error) {
+    console.error("Error changing language:", error);
+  }
 };
 
 export default setI18nConfig;

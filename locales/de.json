@@ -1,12 +1,12 @@
 {
   "login": {
     "title": "Willkommen zurück",
-    "subtitle": "Melden Sie sich bei Ihrem Konto an",
+    "subtitle": "Melden Sie sich in Ihrem Konto an",
     "email": "E-Mail",
     "password": "Passwort",
     "button": "Anmelden",
     "success": "Anmeldung erfolgreich",
-    "noAccountRegister": "Noch kein Konto? Registrieren"
+    "noAccountRegister": "Kein Konto? Registrieren"
   },
   "register": {
     "title": "Konto erstellen",
@@ -47,6 +47,40 @@
     "subtitle": "Wählen Sie Ihre bevorzugte Sprache für die Anwendung",
     "continue": "Weiter"
   },
+  "registrationSuccess": {
+    "title": "Danke für die Registrierung",
+    "trialEnds": "Ihre 30-tägige kostenlose Testversion endet am",
+    "checkPricing": "Preispläne prüfen",
+    "pricingDescription": "Prüfen Sie die verfügbaren Pläne und wählen Sie den besten für Sie"
+  },
+  "pricingPlans": {
+    "title": "Wählen Sie Ihren Plan",
+    "subtitle": "Wählen Sie den Plan, der am besten zu Ihrem Unternehmen passt",
+    "basic": {
+      "name": "Basic",
+      "price": "5$",
+      "terminals": "1 Terminal"
+    },
+    "standard": {
+      "name": "Standard",
+      "price": "10$",
+      "terminals": "3 Terminals"
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "15$",
+      "terminals": "5 Terminals"
+    }
+  },
+  "payment": {
+    "cardLabel": "KARTE",
+    "cardPlaceholder": "1234 56XX XXXX XXXX",
+    "cardNumberPlaceholder": "Kartennummer",
+    "expiryPlaceholder": "MM/JJ",
+    "cvvPlaceholder": "CVV",
+    "cardHolderPlaceholder": "Name des Karteninhabers",
+    "payButton": "Sicher bezahlen"
+  },
   "errors": {
     "invalidEmail": "Geben Sie eine gültige E-Mail-Adresse ein",
     "shortPassword": "Passwort muss mindestens 6 Zeichen lang sein",
@@ -67,6 +101,55 @@
     "submit": "Absenden",
     "cancel": "Abbrechen",
     "verify": "Verifizieren",
-    "next": "Weiter"
+    "next": "Weiter",
+    "skip": "Überspringen"
+  },
+  "quickActions": {
+    "title": "Schnellaktionen",
+    "profile": "Profil",
+    "onboard": "Onboarding",
+    "setup": "Einrichtung",
+    "sales": "Verkäufe",
+    "subscription": "Abonnement",
+    "swipeToClose": "Zum Schließen nach links wischen"
+  },
+  "profile": {
+    "myProfile": {
+      "title": "Mein Profil",
+      "subtitle": "Aktualisieren Sie Ihr Profil mit Ihren Daten",
+      "name": "Name",
+      "email": "E-Mail",
+      "phoneNumber": "Telefonnummer",
+      "role": "Rolle",
+      "photo": "Foto",
+      "language": "Sprache",
+      "save": "Speichern",
+      "namePlaceholder": "Geben Sie Ihren Namen ein",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
+      "phonePlaceholder": "Geben Sie Ihre Telefonnummer ein",
+      "rolePlaceholder": "Geben Sie Ihre Rolle ein",
+      "photoPlaceholder": "Geben Sie Ihre Foto-URL ein",
+      "languagePlaceholder": "Geben Sie Ihre Sprache ein"
+    },
+    "companyProfile": {
+      "title": "Firmenprofil",
+      "subtitle": "Aktualisieren Sie Ihre Firmendaten bei Änderungen"
+    },
+    "changePassword": {
+      "title": "Passwort ändern",
+      "subtitle": "Wenn Sie Ihr Passwort ändern möchten, klicken Sie hier",
+      "newPassword": "Neues Passwort eingeben",
+      "confirmPassword": "Neues Passwort bestätigen",
+      "save": "Speichern",
+      "passwordMismatch": "Passwörter stimmen nicht überein!"
+    }
+  },
+  "landing": {
+    "appName": "Accqrate",
+    "tagline": "E-Rechnungsstellung & ERP-Lösungen"
+  },
+  "dashboard": {
+    "title": "DashBoard",
+    "swipeHint": "Nach rechts wischen, um Schnellaktionen zu öffnen"
   }
 }

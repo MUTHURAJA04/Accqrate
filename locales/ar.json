@@ -19,7 +19,7 @@
     "otpSent": "تم إرسال رمز التحقق إلى {{email}}"
   },
   "otp": {
-    "title": "التحقق برمز التحقق",
+    "title": "التحقق برمز OTP",
     "instruction": "لقد أرسلنا رمز التحقق إلى بريدك الإلكتروني",
     "additionalInstruction": "يرجى فحص صندوق الوارد وإدخال رمز التحقق المكون من 6 أرقام لإكمال إعداد شركتك",
     "resendText": "لم تستلم الرمز؟",
@@ -44,12 +44,46 @@
   },
   "language": {
     "title": "اختر اللغة",
-    "subtitle": "اختر اللغة المفضلة للتطبيق",
+    "subtitle": "اختر لغتك المفضلة للتطبيق",
     "continue": "متابعة"
+  },
+  "registrationSuccess": {
+    "title": "شكراً للتسجيل",
+    "trialEnds": "فترة التجربة المجانية لمدة 30 يوم تنتهي في",
+    "checkPricing": "تحقق من خطط الأسعار",
+    "pricingDescription": "تحقق من الخطط المتاحة واختر الأفضل لك"
+  },
+  "pricingPlans": {
+    "title": "اختر خطتك",
+    "subtitle": "اختر الخطة التي تناسب عملك",
+    "basic": {
+      "name": "أساسي",
+      "price": "٥$",
+      "terminals": "١ محطة"
+    },
+    "standard": {
+      "name": "قياسي",
+      "price": "١٠$",
+      "terminals": "٣ محطات"
+    },
+    "premium": {
+      "name": "مميز",
+      "price": "١٥$",
+      "terminals": "٥ محطات"
+    }
+  },
+  "payment": {
+    "cardLabel": "بطاقة",
+    "cardPlaceholder": "١٢٣٤ ٥٦XX XXXX XXXX",
+    "cardNumberPlaceholder": "رقم البطاقة",
+    "expiryPlaceholder": "شهر/سنة",
+    "cvvPlaceholder": "رمز التحقق",
+    "cardHolderPlaceholder": "اسم حامل البطاقة",
+    "payButton": "دفع آمن"
   },
   "errors": {
     "invalidEmail": "أدخل بريد إلكتروني صحيح",
-    "shortPassword": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    "shortPassword": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
     "requiredName": "الاسم مطلوب",
     "requiredEmail": "البريد الإلكتروني مطلوب",
     "requiredPassword": "كلمة المرور مطلوبة",
@@ -67,6 +101,55 @@
     "submit": "إرسال",
     "cancel": "إلغاء",
     "verify": "تحقق",
-    "next": "التالي"
+    "next": "التالي",
+    "skip": "تخطي"
+  },
+    "quickActions": {
+      "title": "الإجراءات السريعة",
+      "profile": "الملف الشخصي",
+      "onboard": "التفعيل",
+      "setup": "الإعداد",
+      "sales": "المبيعات",
+      "subscription": "الاشتراك",
+      "swipeToClose": "اسحب لليسار للإغلاق"
+    },
+    "profile": {
+      "myProfile": {
+        "title": "ملفي الشخصي",
+        "subtitle": "قم بتحديث ملفك الشخصي ببياناتك",
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "phoneNumber": "رقم الهاتف",
+        "role": "الدور",
+        "photo": "الصورة",
+        "language": "اللغة",
+        "save": "حفظ",
+        "namePlaceholder": "أدخل اسمك",
+        "emailPlaceholder": "أدخل بريدك الإلكتروني",
+        "phonePlaceholder": "أدخل رقم هاتفك",
+        "rolePlaceholder": "أدخل دورك",
+        "photoPlaceholder": "أدخل رابط صورتك",
+        "languagePlaceholder": "أدخل لغتك"
+      },
+      "companyProfile": {
+        "title": "ملف الشركة",
+        "subtitle": "قم بتحديث تفاصيل شركتك في حالة أي تغييرات"
+      },
+      "changePassword": {
+        "title": "تغيير كلمة المرور",
+        "subtitle": "إذا كنت ترغب في تغيير كلمة المرور الخاصة بك، انقر هنا",
+        "newPassword": "أدخل كلمة المرور الجديدة",
+        "confirmPassword": "تأكيد كلمة المرور الجديدة",
+        "save": "حفظ",
+        "passwordMismatch": "كلمات المرور غير متطابقة!"
+      }
+    },
+    "landing": {
+      "appName": "Accqrate",
+      "tagline": "حلول الفوترة الإلكترونية وأنظمة تخطيط الموارد"
+    },
+    "dashboard": {
+      "title": "لوحة التحكم",
+      "swipeHint": "اسحب لليمين لفتح الإجراءات السريعة"
+    }
   }
-}

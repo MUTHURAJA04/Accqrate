@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, TouchableOpacity, StatusBar, Animated } from 'react-native';
 import Input from '../components/CustomInput';
+import { useTranslation } from 'react-i18next';
 
 const Payment = () => {
+  const { t } = useTranslation();
   const [cardNumber, setCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCvv] = useState('');
@@ -59,7 +61,7 @@ const Payment = () => {
     const digits = cardNumber.replace(/\s/g, '');
     
     if (digits.length === 0) {
-      return '1234 56XX XXXX XXXX';
+      return t('payment.cardPlaceholder');
     }
     
     // Build display: show entered digits, mask the rest
@@ -104,12 +106,14 @@ const Payment = () => {
     <View className="flex-1 bg-white px-6">
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       
-      {/* Credit Card Visual - Exactly like your original design */}
+      {/* Credit Card Visual */}
       <View className="mt-8 mb-8">
         <View className="bg-gray-600 rounded-2xl p-6 h-48 justify-between">
           {/* CARD label in top right */}
           <View className="items-end">
-            <Text className="text-white text-lg font-bold">CARD</Text>
+            <Text className="text-white text-lg font-bold">
+              {t('payment.cardLabel')}
+            </Text>
           </View>
 
           {/* Card Number with blinking cursor */}
@@ -136,7 +140,7 @@ const Payment = () => {
       <View className="flex-1">
         {/* Card Number */}
         <Input
-          placeholder="Card number"
+          placeholder={t('payment.cardNumberPlaceholder')}
           value={formatCardNumber(cardNumber)}
           onChangeText={handleCardNumberChange}
           keyboardType="numeric"
@@ -149,7 +153,7 @@ const Payment = () => {
           {/* Expiration Date */}
           <View className="flex-1">
             <Input
-              placeholder="MM/YY"
+              placeholder={t('payment.expiryPlaceholder')}
               value={expirationDate}
               onChangeText={handleExpirationDateChange}
               keyboardType="numeric"
@@ -160,7 +164,7 @@ const Payment = () => {
           {/* CVV */}
           <View className="flex-1">
             <Input
-              placeholder="CVV"
+              placeholder={t('payment.cvvPlaceholder')}
               value={cvv}
               onChangeText={handleCvvChange}
               keyboardType="numeric"
@@ -172,7 +176,7 @@ const Payment = () => {
 
         {/* Card Holder's Name */}
         <Input
-          placeholder="Card holder's name"
+          placeholder={t('payment.cardHolderPlaceholder')}
           value={cardHolderName}
           onChangeText={setCardHolderName}
           autoCapitalize="words"
@@ -185,7 +189,9 @@ const Payment = () => {
           activeOpacity={0.8}
           className="bg-blue-600 rounded-lg py-4 items-center"
         >
-          <Text className="text-white text-lg font-bold">Pay Secured</Text>
+          <Text className="text-white text-lg font-bold">
+            {t('payment.payButton')}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

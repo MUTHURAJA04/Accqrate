@@ -15,6 +15,9 @@ import RegistrationSuccess from '../Screens/RegistrationSuccess';
 import PricingPlans from '../Screens/PricingPlans';
 import DashBoard from '../Screens/DashBoard';
 import Payment from '../Screens/Payment';
+import ChangePassword from '../Screens/Profile/ChangePassword';
+import CompanyProfile from '../Screens/Profile/CompanyProfile';
+import MyProfile from '../Screens/Profile/MyProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,16 +42,50 @@ const LayoutNavigator = () => {
       <Stack.Screen name="PricingPlans" component={PricingPlans} />
       <Stack.Screen name="Payment" component={Payment} />
 
-      {/* Screens WITH regular layout */}
+      {/* Profile Sub-screens WITH swipeable layout */}
+      <Stack.Screen 
+        name="MyProfile" 
+        component={withSwipeableWithLayout(MyProfile, { 
+          showHeader: true, 
+          showBottom: false,
+          headerTitle: "My Profile"  
+        })} 
+      />
+      <Stack.Screen 
+        name="CompanyProfile" 
+        component={withSwipeableWithLayout(CompanyProfile, { 
+          showHeader: true, 
+          showBottom: false,
+          headerTitle: "Company Profile"  
+        })} 
+      />
+      <Stack.Screen 
+        name="ChangePassword" 
+        component={withSwipeableWithLayout(ChangePassword, { 
+          showHeader: true, 
+          showBottom: false,
+          headerTitle: "Change Password"  
+        })} 
+      />
+
+      {/* Main Profile screen WITH regular layout */}
       <Stack.Screen 
         name="Profile" 
-        component={withLayout(Profile, { showHeader: true, showBottom: false })} 
+        component={withLayout(Profile, { 
+          showHeader: true, 
+          showBottom: false,
+          headerTitle: "Profile"  
+        })} 
       />
       
-      {/* Screens WITH swipeable layout */}
+      {/* DashBoard WITH swipeable layout */}
       <Stack.Screen 
         name="DashBoard" 
-        component={withSwipeableWithLayout(DashBoard, { showHeader: false, showBottom: false })} 
+        component={withSwipeableWithLayout(DashBoard, { 
+          showHeader: true, 
+          showBottom: false,
+          headerTitle: "company Name"  
+        })} 
       />
     </Stack.Navigator>
   );

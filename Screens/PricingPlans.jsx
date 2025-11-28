@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 const PricingPlans = () => {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [selectedPlan, setSelectedPlan] = useState(null);
 
   const plans = [
     { 
-      name: 'Basic', 
-      price: '$5', 
-      terminals: '1 Terminal'
+      name: t('pricingPlans.basic.name'), 
+      price: t('pricingPlans.basic.price'), 
+      terminals: t('pricingPlans.basic.terminals')
     },
     { 
-      name: 'Standard', 
-      price: '$10', 
-      terminals: '3 Terminals'
+      name: t('pricingPlans.standard.name'), 
+      price: t('pricingPlans.standard.price'), 
+      terminals: t('pricingPlans.standard.terminals')
     },
     { 
-      name: 'Premium', 
-      price: '$15', 
-      terminals: '5 Terminals'
+      name: t('pricingPlans.premium.name'), 
+      price: t('pricingPlans.premium.price'), 
+      terminals: t('pricingPlans.premium.terminals')
     },
   ];
 
@@ -41,10 +43,10 @@ const PricingPlans = () => {
       {/* Header */}
       <View className="px-6 pt-16 pb-8">
         <Text className="text-3xl font-bold text-gray-900 text-center mb-2">
-          Choose Your Plan
+          {t('pricingPlans.title')}
         </Text>
         <Text className="text-base text-gray-600 text-center">
-          Select the plan that works best for your business
+          {t('pricingPlans.subtitle')}
         </Text>
       </View>
 

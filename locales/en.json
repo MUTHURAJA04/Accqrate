@@ -47,6 +47,40 @@
     "subtitle": "Choose your preferred language for the application",
     "continue": "Continue"
   },
+  "registrationSuccess": {
+    "title": "Thanks for the registration",
+    "trialEnds": "Your 30 days free trial ends on",
+    "checkPricing": "Check Pricing Plans",
+    "pricingDescription": "Check various plans available and choose the best for you"
+  },
+  "pricingPlans": {
+    "title": "Choose Your Plan",
+    "subtitle": "Select the plan that works best for your business",
+    "basic": {
+      "name": "Basic",
+      "price": "$5",
+      "terminals": "1 Terminal"
+    },
+    "standard": {
+      "name": "Standard",
+      "price": "$10",
+      "terminals": "3 Terminals"
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "$15",
+      "terminals": "5 Terminals"
+    }
+  },
+  "payment": {
+    "cardLabel": "CARD",
+    "cardPlaceholder": "1234 56XX XXXX XXXX",
+    "cardNumberPlaceholder": "Card number",
+    "expiryPlaceholder": "MM/YY",
+    "cvvPlaceholder": "CVV",
+    "cardHolderPlaceholder": "Card holder's name",
+    "payButton": "Pay Secured"
+  },
   "errors": {
     "invalidEmail": "Enter a valid email",
     "shortPassword": "Password must be at least 6 characters",
@@ -67,6 +101,55 @@
     "submit": "Submit",
     "cancel": "Cancel",
     "verify": "Verify",
-    "next": "Next"
+    "next": "Next",
+    "skip": "Skip"
+  },
+  "quickActions": {
+    "title": "Quick Actions",
+    "profile": "Profile",
+    "onboard": "Onboard",
+    "setup": "Setup",
+    "sales": "Sales",
+    "subscription": "Subscription",
+    "swipeToClose": "Swipe left to close"
+  },
+  "profile": {
+    "myProfile": {
+      "title": "My Profile",
+      "subtitle": "Update your profile with your details",
+      "name": "Name",
+      "email": "Email",
+      "phoneNumber": "Phone number",
+      "role": "Role",
+      "photo": "Photo",
+      "language": "Language",
+      "save": "Save",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number",
+      "rolePlaceholder": "Enter your role",
+      "photoPlaceholder": "Enter your photo URL",
+      "languagePlaceholder": "Enter your language"
+    },
+    "companyProfile": {
+      "title": "Company Profile",
+      "subtitle": "Update your company details in case of any changes"
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "subtitle": "If you would like to change your password, click here",
+      "newPassword": "Enter new password",
+      "confirmPassword": "Confirm new password",
+      "save": "Save",
+      "passwordMismatch": "Passwords don't match!"
+    }
+  },
+  "landing": {
+    "appName": "Accqrate",
+    "tagline": "E-invoicing & ERP Solutions"
+  },
+  "dashboard": {
+    "title": "DashBoard",
+    "swipeHint": "Swipe Right to open Quick Actions"
   }
 }

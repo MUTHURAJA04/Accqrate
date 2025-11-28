@@ -2,9 +2,11 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { Car } from 'lucide-react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 const RegistrationSuccess = () => {
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   // Calculate trial end date (30 days from now)
   const trialEndDate = new Date();
@@ -24,10 +26,10 @@ const RegistrationSuccess = () => {
         {/* Top Section */}
         <View className="items-center mb-12">
           <Text className="text-3xl font-bold text-gray-900 mb-4 text-center">
-            Thanks for the registration
+            {t('registrationSuccess.title')}
           </Text>
           <Text className="text-lg text-gray-600 mb-2 text-center">
-            Your 30 days free trial ends on
+            {t('registrationSuccess.trialEnds')}
           </Text>
           <Text className="text-xl font-semibold text-blue-600">
             {formattedDate}
@@ -49,10 +51,10 @@ const RegistrationSuccess = () => {
             {/* Text content */}
             <View className="flex-1">
               <Text className="text-xl font-bold text-gray-900 mb-2">
-                Check Pricing Plans
+                {t('registrationSuccess.checkPricing')}
               </Text>
               <Text className="text-base text-gray-600 leading-5">
-                Check various plans available and choose the best for you
+                {t('registrationSuccess.pricingDescription')}
               </Text>
             </View>
           </TouchableOpacity>
@@ -65,7 +67,9 @@ const RegistrationSuccess = () => {
             onPress={() => navigation.navigate('DashBoard')}  
             className="bg-blue-600 rounded-xl py-4 items-center shadow-sm"
           >
-            <Text className="text-white text-lg font-semibold">Skip</Text>
+            <Text className="text-white text-lg font-semibold">
+              {t('common.skip')}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

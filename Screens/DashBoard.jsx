@@ -1,9 +1,12 @@
 // Screens/DashBoard.js
 import React from "react";
 import { View, Text, StatusBar } from "react-native";
+import { useTranslation } from 'react-i18next';
 import SwipeableQuickActions from "../components/SwipeableQuickActions";
 
 const DashBoard = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <StatusBar 
@@ -21,9 +24,9 @@ const DashBoard = () => {
             marginTop: StatusBar.currentHeight, // This pushes content down
           }}
         >
-          <Text style={{ fontSize: 24 }}>DashBoard</Text>
+          <Text style={{ fontSize: 24 }}>{t("dashboard.title")}</Text>
           <Text style={{ marginTop: 10, color: "#666" }}>
-            Swipe Right to open Quick Actions
+            {t("dashboard.swipeHint")}
           </Text>
         </View>
       </SwipeableQuickActions>

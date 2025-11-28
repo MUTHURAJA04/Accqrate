@@ -8,6 +8,7 @@ const Layout = ({
   children,
   showHeader = true,
   showBottom = true,
+  headerTitle,                    // optional: custom title for header
   headerComponent: CustomHeader,   // optional: allow custom header
   bottomComponent: CustomBottom    // optional: allow custom bottom
 }) => {
@@ -17,7 +18,7 @@ const Layout = ({
       {/* Header */}
       {showHeader && (
         <View className="w-full">
-          {CustomHeader ? <CustomHeader /> : <Header />}
+          {CustomHeader ? <CustomHeader /> : <Header title={headerTitle} />}
         </View>
       )}
 

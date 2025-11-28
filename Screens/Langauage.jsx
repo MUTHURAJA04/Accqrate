@@ -34,9 +34,9 @@ const Language = () => {
     await changeLanguage(code);
     console.log('Selected:', code);
 
-    const isRTL = code === 'ar';
-    I18nManager.allowRTL(isRTL);
-    I18nManager.forceRTL(isRTL);
+    // const isRTL = code === 'ar';
+    // I18nManager.allowRTL(isRTL);
+    // I18nManager.forceRTL(isRTL);
 
     navigation.reset({
       index: 0,
