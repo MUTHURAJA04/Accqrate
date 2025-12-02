@@ -151,5 +151,49 @@
   "dashboard": {
     "title": "DashBoard",
     "swipeHint": "Swipe Right to open Quick Actions"
+  },
+  "onboard": {
+    "eInvoicing": {
+      "title": "E-INVOICING ON-BOARDING",
+      "description": "Phase 2 integration with ZATCA. Enable your company to send invoices."
+    },
+    "skip": {
+      "title": "SKIP ON-BOARDING",
+      "description": "Phase 2 integration can also be done later. If you have any questions contact us."
+    }
+  },
+  "setup": {
+    "stores": {
+      "title": "Stores",
+      "description": "Add your store details from which the sales are done"
+    },
+    "customers": {
+      "title": "Customers",
+      "description": "Add your customers details if you would like to capture them"
+    },
+    "products": {
+      "title": "Products Categories",
+      "description": "Create categories for easy search of your products"
+    },
+    "accounts": {
+      "title": "Products",
+      "description": "Add your product details to use them in invoices"
+    },
+    "services": {
+      "title": "Services",
+      "description": "Create your services, if you are in Service Business"
+    },
+    "terminals": {
+      "title": "Terminals",
+      "description": "Create terminals that you will be using in your front office"
+    },
+    "paymentMethods": {
+      "title": "Payment Methods",
+      "description": "Add, manage and search payment methods like Visa, Debit Card, Google Pay"
+    },
+    "salesPerson": {
+      "title": "Sales Person",
+      "description": "Create Sales person and track their performance"
+    }
   }
 }

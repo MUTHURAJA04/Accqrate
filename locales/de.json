@@ -151,5 +151,49 @@
   "dashboard": {
     "title": "DashBoard",
     "swipeHint": "Nach rechts wischen, um Schnellaktionen zu öffnen"
+  },
+  "onboard": {
+    "eInvoicing": {
+      "title": "E-RECHNUNGS-ONBOARDING",
+      "description": "Phase-2-Integration mit ZATCA. Ermöglichen Sie Ihrem Unternehmen, Rechnungen zu senden."
+    },
+    "skip": {
+      "title": "ONBOARDING ÜBERSPRINGEN",
+      "description": "Die Phase-2-Integration kann auch später durchgeführt werden. Wenn Sie Fragen haben, kontaktieren Sie uns."
+    }
+  },
+  "setup": {
+    "stores": {
+      "title": "Geschäfte",
+      "description": "Fügen Sie Ihre Geschäftsdetails hinzu, von denen aus die Verkäufe getätigt werden"
+    },
+    "customers": {
+      "title": "Kunden",
+      "description": "Fügen Sie Ihre Kundendaten hinzu, wenn Sie sie erfassen möchten"
+    },
+    "products": {
+      "title": "Produkte",
+      "description": "Fügen Sie Ihre Produktdetails hinzu, um sie in Rechnungen zu verwenden"
+    },
+    "accounts": {
+      "title": "Konten",
+      "description": "Geschäftsnummer, Geschäftsname und Kontoinformationen"
+    },
+    "services": {
+      "title": "Dienstleistungen",
+      "description": "Erstellen Sie Ihre Dienstleistungen, wenn Sie im Dienstleistungsgeschäft tätig sind"
+    },
+    "terminals": {
+      "title": "Terminals",
+      "description": "Erstellen Sie Terminals, die Sie in Ihrem Front-Office verwenden werden"
+    },
+    "paymentMethods": {
+      "title": "Zahlungsmethoden",
+      "description": "Hinzufügen, Verwalten und Suchen von Zahlungsmethoden wie Visa, Debitkarte, Google Pay"
+    },
+    "salesPerson": {
+      "title": "Verkäufer",
+      "description": "Erstellen Sie Verkäufer und verfolgen Sie deren Leistung"
+    }
   }
 }

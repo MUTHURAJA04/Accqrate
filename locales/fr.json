@@ -151,5 +151,49 @@
   "dashboard": {
     "title": "Tableau de bord",
     "swipeHint": "Glisser vers la droite pour ouvrir les actions rapides"
+  },
+  "onboard": {
+    "eInvoicing": {
+      "title": "INTÉGRATION DE LA FACTURATION ÉLECTRONIQUE",
+      "description": "Intégration de la phase 2 avec ZATCA. Permettez à votre entreprise d'envoyer des factures."
+    },
+    "skip": {
+      "title": "IGNORER L'INTÉGRATION",
+      "description": "L'intégration de la phase 2 peut également être effectuée plus tard. Si vous avez des questions, contactez-nous."
+    }
+  },
+  "setup": {
+    "stores": {
+      "title": "Magasins",
+      "description": "Ajoutez les détails de votre magasin à partir desquels les ventes sont effectuées"
+    },
+    "customers": {
+      "title": "Clients",
+      "description": "Ajoutez les détails de vos clients si vous souhaitez les capturer"
+    },
+    "products": {
+      "title": "Produits",
+      "description": "Ajoutez les détails de vos produits pour les utiliser dans les factures"
+    },
+    "accounts": {
+      "title": "Comptes",
+      "description": "Numéro de magasin, nom du magasin et informations de compte"
+    },
+    "services": {
+      "title": "Services",
+      "description": "Créez vos services, si vous êtes dans le secteur des services"
+    },
+    "terminals": {
+      "title": "Terminaux",
+      "description": "Créez les terminaux que vous utiliserez dans votre bureau frontal"
+    },
+    "paymentMethods": {
+      "title": "Méthodes de paiement",
+      "description": "Ajouter, gérer et rechercher des méthodes de paiement comme Visa, Carte de débit, Google Pay"
+    },
+    "salesPerson": {
+      "title": "Vendeur",
+      "description": "Créez un vendeur et suivez ses performances"
+    }
   }
 }

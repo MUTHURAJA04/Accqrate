@@ -3,34 +3,16 @@ import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { Car, FileStack, ArrowLeft } from 'lucide-react-native';
-import Svg, { Line } from 'react-native-svg';
 
 const Profile = () => {
   const navigation = useNavigation();
   const { t } = useTranslation();
-
-  // Car with siren/lights effect component
-  const CarWithSiren = () => (
-    <View className="relative items-center justify-center" style={{ width: 32, height: 40 }}>
-      <Car size={32} color="#000" strokeWidth={1.5} />
-      <View className="absolute" style={{ top: -8, left: 8, right: 8 }}>
-        <Svg width={16} height={12} viewBox="0 0 16 12">
-          <Line x1="8" y1="0" x2="8" y2="4" stroke="#000" strokeWidth="1.2" />
-          <Line x1="4" y1="2" x2="6" y2="4" stroke="#000" strokeWidth="1.2" />
-          <Line x1="12" y1="2" x2="10" y2="4" stroke="#000" strokeWidth="1.2" />
-          <Line x1="2" y1="4" x2="4" y2="6" stroke="#000" strokeWidth="1.2" />
-          <Line x1="14" y1="4" x2="12" y2="6" stroke="#000" strokeWidth="1.2" />
-        </Svg>
-      </View>
-    </View>
-  );
 
   const profileSections = [
     {
       title: t("profile.myProfile.title"),
       subtitle: t("profile.myProfile.subtitle"),
       icon: Car,
-      customIcon: CarWithSiren,
       screen: "MyProfile",
     },
     {
