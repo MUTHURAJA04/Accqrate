@@ -31,6 +31,9 @@ import NewCustomer from '../Screens/Customers/NewCustomer';
 import EditCustomer from '../Screens/Customers/EditCustomer';
 import ProductCategories from '../Screens/ProductCategories';
 import NewProductCategorie from '../Screens/ProductCategories/NewProductCategorie'; 
+import Products from '../Screens/Products';
+import NewProduct from '../Screens/Products/NewProduct';
+import EditProduct from '../Screens/Products/EditProduct';
 
 
 
@@ -89,6 +92,9 @@ const LayoutNavigator = () => {
       <Stack.Screen name="EditCustomer" component={withSwipeableWithLayout(EditCustomer, { showHeader: true, showBottom: false,headerTitle: "Edit Customer" })}/> 
       <Stack.Screen name="ProductCategories"component={withSwipeableWithLayout(ProductCategories, { showHeader: true, showBottom: false,headerTitle: "Product Categories"  })}/>  
       <Stack.Screen name="NewProductCategorie"component={withSwipeableWithLayout(NewProductCategorie, { showHeader: true, showBottom: false,headerTitle: "New Product Category"  })}/> 
+      <Stack.Screen name="Products" component={withSwipeableWithLayout(Products, { showHeader: true, showBottom: false, headerTitle: "Products" })} /> 
+      <Stack.Screen name="NewProduct" component={withSwipeableWithLayout(NewProduct, { showHeader: true, showBottom: false, headerTitle: "Add Products" })} /> 
+      <Stack.Screen name="EditProduct" component={withSwipeableWithLayout(EditProduct, { showHeader: true, showBottom: false, headerTitle: "Edit Products" })} />   
       
 
     </Stack.Navigator>
