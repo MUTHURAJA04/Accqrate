@@ -110,10 +110,11 @@ const Setup = () => {
           </View>
         </TouchableOpacity>
 
-        {/* Product */}
+        {/* Services */}
         <TouchableOpacity
           activeOpacity={0.85}
           className="bg-blue-50 rounded-2xl p-6 mb-5 flex-row items-center shadow-sm"
+          onPress={() => navigation.navigate('Services')}
         >
           {/* Icon */}
           <View className="mr-5">
@@ -135,6 +136,7 @@ const Setup = () => {
         <TouchableOpacity
           activeOpacity={0.85}
           className="bg-blue-50 rounded-2xl p-6 mb-5 flex-row items-center shadow-sm"
+          onPress={() => navigation.navigate('Terminals')}
         >
           {/* Icon */}
           <View className="mr-5">
@@ -156,6 +158,7 @@ const Setup = () => {
         <TouchableOpacity
           activeOpacity={0.85}
           className="bg-blue-50 rounded-2xl p-6 mb-5 flex-row items-center shadow-sm"
+          onPress={() => navigation.navigate('PaymentMethods')}
         >
           {/* Icon */}
           <View className="mr-5">

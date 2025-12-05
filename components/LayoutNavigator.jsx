@@ -34,6 +34,17 @@ import NewProductCategorie from '../Screens/ProductCategories/NewProductCategori
 import Products from '../Screens/Products';
 import NewProduct from '../Screens/Products/NewProduct';
 import EditProduct from '../Screens/Products/EditProduct';
+import Services from '../Screens/Services';
+import NewService from '../Screens/Services/NewService';
+import EditService from '../Screens/Services/EditService';
+import Terminals from '../Screens/Terminals';
+import SetupNewTerminal from '../Screens/Terminals/SetupNewTerminal';
+import SetupEditTerminal from '../Screens/Terminals/SetupEditTerminal';
+import PaymentMethods from '../Screens/PaymentMethods';
+
+
+
+
 
 
 
@@ -95,8 +106,14 @@ const LayoutNavigator = () => {
       <Stack.Screen name="Products" component={withSwipeableWithLayout(Products, { showHeader: true, showBottom: false, headerTitle: "Products" })} /> 
       <Stack.Screen name="NewProduct" component={withSwipeableWithLayout(NewProduct, { showHeader: true, showBottom: false, headerTitle: "Add Products" })} /> 
       <Stack.Screen name="EditProduct" component={withSwipeableWithLayout(EditProduct, { showHeader: true, showBottom: false, headerTitle: "Edit Products" })} />   
+      <Stack.Screen name="Services" component={withSwipeableWithLayout(Services, { showHeader: true, showBottom: false, headerTitle: "Services" })} /> 
+      <Stack.Screen name="NewService" component={withSwipeableWithLayout(NewService, { showHeader: true, showBottom: false, headerTitle: "Add Services" })} /> 
+      <Stack.Screen name="EditService" component={withSwipeableWithLayout(EditService, { showHeader: true, showBottom: false, headerTitle: "Edit Services" })} /> 
+      <Stack.Screen name="Terminals" component={withSwipeableWithLayout(Terminals, { showHeader: true, showBottom: false, headerTitle: "Terminals" })} /> 
+      <Stack.Screen name="SetupNewTerminal" component={withSwipeableWithLayout(SetupNewTerminal, { showHeader: true, showBottom: false, headerTitle: " New Terminal" })} /> 
+      <Stack.Screen name="SetupEditTerminal" component={withSwipeableWithLayout(SetupEditTerminal, { showHeader: true, showBottom: false, headerTitle: " Edit Terminal" })} />     
+      <Stack.Screen name="PaymentMethods" component={withSwipeableWithLayout(PaymentMethods, { showHeader: true, showBottom: false, headerTitle: "Payment Methods" })} />     
       
-
     </Stack.Navigator>
   );
 };
