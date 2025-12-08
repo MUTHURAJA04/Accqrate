@@ -180,6 +180,7 @@ const Setup = () => {
         <TouchableOpacity
           activeOpacity={0.85}
           className="bg-blue-50 rounded-2xl p-6 mb-10 flex-row items-center shadow-sm"
+          onPress={() => navigation.navigate('SalesPerson')}
         >
           {/* Icon */}
           <View className="mr-5">

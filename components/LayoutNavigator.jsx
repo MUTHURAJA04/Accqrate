@@ -41,6 +41,9 @@ import Terminals from '../Screens/Terminals';
 import SetupNewTerminal from '../Screens/Terminals/SetupNewTerminal';
 import SetupEditTerminal from '../Screens/Terminals/SetupEditTerminal';
 import PaymentMethods from '../Screens/PaymentMethods';
+import SalesPerson from '../Screens/SalesPerson';
+import NewSalesPerson from '../Screens/SalesPerson/NewSalesPerson';
+import EditSalesPerson from '../Screens/SalesPerson/EditSalesPerson';
 
 
 
@@ -113,7 +116,11 @@ const LayoutNavigator = () => {
       <Stack.Screen name="SetupNewTerminal" component={withSwipeableWithLayout(SetupNewTerminal, { showHeader: true, showBottom: false, headerTitle: " New Terminal" })} /> 
       <Stack.Screen name="SetupEditTerminal" component={withSwipeableWithLayout(SetupEditTerminal, { showHeader: true, showBottom: false, headerTitle: " Edit Terminal" })} />     
       <Stack.Screen name="PaymentMethods" component={withSwipeableWithLayout(PaymentMethods, { showHeader: true, showBottom: false, headerTitle: "Payment Methods" })} />     
-      
+      <Stack.Screen name="SalesPerson" component={withSwipeableWithLayout(SalesPerson, { showHeader: true, showBottom: false, headerTitle: "Sales Person" })} />  
+      <Stack.Screen name="NewSalesPerson" component={withSwipeableWithLayout(NewSalesPerson, { showHeader: true, showBottom: false, headerTitle: "New Sales Person" })} />  
+      <Stack.Screen name="EditSalesPerson" component={withSwipeableWithLayout(EditSalesPerson, { showHeader: true, showBottom: false, headerTitle: "Edit Sales Person" })} />  
+    
+
     </Stack.Navigator>
   );
 };
