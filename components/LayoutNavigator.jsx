@@ -43,7 +43,9 @@ import SetupEditTerminal from '../Screens/Terminals/SetupEditTerminal';
 import PaymentMethods from '../Screens/PaymentMethods';
 import SalesPerson from '../Screens/SalesPerson';
 import NewSalesPerson from '../Screens/SalesPerson/NewSalesPerson';
-import EditSalesPerson from '../Screens/SalesPerson/EditSalesPerson';
+import EditSalesPerson from '../Screens/SalesPerson/EditSalesPerson';Sales
+import Sales from '../Screens/Sales';
+
 
 
 
@@ -119,7 +121,7 @@ const LayoutNavigator = () => {
       <Stack.Screen name="SalesPerson" component={withSwipeableWithLayout(SalesPerson, { showHeader: true, showBottom: false, headerTitle: "Sales Person" })} />  
       <Stack.Screen name="NewSalesPerson" component={withSwipeableWithLayout(NewSalesPerson, { showHeader: true, showBottom: false, headerTitle: "New Sales Person" })} />  
       <Stack.Screen name="EditSalesPerson" component={withSwipeableWithLayout(EditSalesPerson, { showHeader: true, showBottom: false, headerTitle: "Edit Sales Person" })} />  
-    
+      <Stack.Screen name="Sales" component={withSwipeableWithLayout(Sales, { showHeader: true, showBottom: false, headerTitle: "Choose	the	Terminal" })} />   
 
     </Stack.Navigator>
   );
