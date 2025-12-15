@@ -45,6 +45,10 @@ import SalesPerson from '../Screens/SalesPerson';
 import NewSalesPerson from '../Screens/SalesPerson/NewSalesPerson';
 import EditSalesPerson from '../Screens/SalesPerson/EditSalesPerson';Sales
 import Sales from '../Screens/Sales';
+import SetupPos from '../Screens/POS/SetupPos';
+import Invoice from '../Screens/Invoice';
+
+
 
 
 
@@ -121,7 +125,9 @@ const LayoutNavigator = () => {
       <Stack.Screen name="SalesPerson" component={withSwipeableWithLayout(SalesPerson, { showHeader: true, showBottom: false, headerTitle: "Sales Person" })} />  
       <Stack.Screen name="NewSalesPerson" component={withSwipeableWithLayout(NewSalesPerson, { showHeader: true, showBottom: false, headerTitle: "New Sales Person" })} />  
       <Stack.Screen name="EditSalesPerson" component={withSwipeableWithLayout(EditSalesPerson, { showHeader: true, showBottom: false, headerTitle: "Edit Sales Person" })} />  
-      <Stack.Screen name="Sales" component={withSwipeableWithLayout(Sales, { showHeader: true, showBottom: false, headerTitle: "Choose	the	Terminal" })} />   
+      <Stack.Screen name="Sales" component={withSwipeableWithLayout(Sales, { showHeader: true, showBottom: false, headerTitle: "Choose the Terminal"})}/>
+      <Stack.Screen name="SetupPos" component={withSwipeableWithLayout(SetupPos,{ showHeader: true, showBottom: false, headerTitle: "Set-ups"})}/>
+      <Stack.Screen name="Invoice"  component={withSwipeableWithLayout(Invoice, { showHeader: true, showBottom: false, headerTitle: "Invoice" })} />  
 
     </Stack.Navigator>
   );

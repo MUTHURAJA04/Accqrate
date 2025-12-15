@@ -1,92 +1,149 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures";
-import { FileText, Receipt, History } from "lucide-react-native";
+import React, { useRef, useEffect } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Animated,
+  Modal,
+  TouchableWithoutFeedback,
+  Dimensions,
+} from "react-native";
+import { BlurView } from "@react-native-community/blur";
+import { FileText, Receipt, History, X } from "lucide-react-native";
 
-const PosQuickActions = ({ onSelect, onSwipeClose, children }) => {
+const SCREEN_WIDTH = Dimensions.get("window").width;
+const FULL_ROUND_RADIUS = 40;
+
+const PosQuickActions = ({ visible, onClose, onSelect }) => {
+  const slideAnim = useRef(new Animated.Value(300)).current; // initial offscreen
+
+  useEffect(() => {
+    if (visible) {
+      Animated.timing(slideAnim, {
+        toValue: 0,
+        duration: 320,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      Animated.timing(slideAnim, {
+        toValue: 300,
+        duration: 280,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [visible]);
+
   const actions = [
-    { id: "invoice", label: "Invoice", icon: FileText },
-    { id: "credit-note", label: "Credit Note", icon: Receipt },
-    { id: "bills-history", label: "Bills History", icon: History },
+    { id: "Invoice", label: "Invoice", icon: FileText, screen: "SetupPos"},
+    { id: "CreditNote", label: "Credit Note", icon: Receipt, screen: "CreditNote"},
+    { id: "BillsHistory", label: "Bills History", icon: History, screen: "BillsHistory"},
   ];
 
-  // Swipe Config — prevents oversensitivity
-  const swipeConfig = {
-    velocityThreshold: 0.3,
-    directionalOffsetThreshold: 80,
-  };
-
   return (
-    <GestureRecognizer
-      onSwipeLeft={onSwipeClose}
-      onSwipeRight={onSwipeClose}
-      config={swipeConfig}
-      style={styles.wrapper}
+    <Modal
+      transparent
+      animationType="none"
+      visible={visible}
+      onRequestClose={onClose}
+      statusBarTranslucent
     >
-      {/* Quick Actions Panel */}
-      <View style={styles.actionContainer}>
-        <Text style={styles.title}>POS Quick Actions</Text>
+      {/* Blur background */}
+      <TouchableWithoutFeedback onPress={onClose}>
+        <BlurView
+          blurType="light"
+          blurAmount={18}
+          style={{
+            flex: 1,
+            backgroundColor: "rgba(0,0,0,0.15)",
+          }}
+        />
+      </TouchableWithoutFeedback>
 
-        <View style={styles.row}>
-          {actions.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <TouchableOpacity
-                key={item.id}
-                onPress={() => onSelect(item.id)}
-                style={styles.actionButton}
-                activeOpacity={0.8}
-              >
-                <Icon size={26} color="#0077CC" />
-                <Text style={styles.label}>{item.label}</Text>
-              </TouchableOpacity>
-            );
-          })}
+      {/* Sliding panel */}
+      <Animated.View
+        style={{
+          position: "absolute",
+          bottom: 0,
+          width: SCREEN_WIDTH,
+          borderTopLeftRadius: FULL_ROUND_RADIUS,
+          borderTopRightRadius: FULL_ROUND_RADIUS,
+          overflow: "hidden",
+          transform: [{ translateY: slideAnim }],
+          backgroundColor: "rgba(255, 255, 255, 0.98)",
+          shadowColor: "#000",
+          shadowOpacity: 0.15,
+          shadowOffset: { width: 0, height: -4 },
+          shadowRadius: 12,
+          elevation: 20,
+          paddingHorizontal: 24,
+          paddingTop: 20,
+          paddingBottom: 28,
+          minHeight: 220,          // minHeight so it can grow if needed but no extra space
+        }}
+      >
+        {/* Header */}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: 20,
+          }}
+        >
+          <Text style={{ fontSize: 24, fontWeight: "800", color: "#0077CC" }}>
+            Quick Actions
+          </Text>
+          <TouchableOpacity onPress={onClose} accessibilityLabel="Close quick actions">
+            <X size={24} color="#0077CC" />
+          </TouchableOpacity>
         </View>
-      </View>
 
-      {/* Render Terminal Card */}
-      <View>{children}</View>
-    </GestureRecognizer>
+        {/* Actions */}
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+  {actions.map((action) => {
+    const Icon = action.icon;
+    return (
+      <TouchableOpacity
+        key={action.id}
+        onPress={() => {
+          onSelect(action); // pass full action object
+          onClose();
+        }}
+        activeOpacity={0.85}
+        style={{
+          backgroundColor: "white",
+          width: "30%",
+          paddingVertical: 18,
+          borderRadius: 24,
+          alignItems: "center",
+          shadowColor: "#000",
+          shadowOpacity: 0.1,
+          shadowOffset: { width: 0, height: 3 },
+          shadowRadius: 6,
+          elevation: 10,
+        }}
+        accessibilityLabel={`Quick action ${action.label}`}
+      >
+        <Icon size={30} color="#0077CC" />
+        <Text
+          style={{
+            marginTop: 10,
+            fontSize: 16,
+            fontWeight: "700",
+            color: "#0077CC",
+            textAlign: "center",
+          }}
+        >
+          {action.label}
+        </Text>
+      </TouchableOpacity>
+    );
+  })}
+</View>
+
+      </Animated.View>
+    </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    width: "100%",
-  },
-  actionContainer: {
-    backgroundColor: "#E5F3FF",
-    padding: 16,
-    borderRadius: 16,
-    marginBottom: 10,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "700",
-    color: "#333",
-    marginBottom: 10,
-  },
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  actionButton: {
-    backgroundColor: "#fff",
-    paddingVertical: 12,
-    width: "30%",
-    borderRadius: 14,
-    alignItems: "center",
-    elevation: 2, // fixes Android shadow
-  },
-  label: {
-    marginTop: 6,
-    fontSize: 12,
-    fontWeight: "600",
-    color: "#555",
-    textAlign: "center",
-  },
-});
 
 export default PosQuickActions;

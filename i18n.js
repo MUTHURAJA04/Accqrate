@@ -11,33 +11,39 @@ import fr from "./locales/fr.json";
 
 const LANG_KEY = "appLanguage";
 
-const resourcesArray = [
-  { code: "en", resource: en },
-  { code: "ar", resource: ar },
-  { code: "fr", resource: fr },
-  { code: "de", resource: de },
-];
+/* ---------------- RESOURCES ---------------- */
 
-// Build resources object in correct order
-const resources = {};
-resourcesArray.forEach(({ code, resource }) => {
-  resources[code] = { translation: resource };
-});
+const resources = {
+  en: { translation: en },
+  ar: { translation: ar },
+  fr: { translation: fr },
+  de: { translation: de },
+};
+
+/* ---------------- INIT ---------------- */
 
 export const setI18nConfig = async () => {
   try {
     const savedLang = await AsyncStorage.getItem(LANG_KEY);
-    const fallback = "en";
+    const fallbackLang = "en";
 
-    // Use findBestLanguageTag (string) - returns best matching tag or null
-    const bestLanguageTag = RNLocalize.findBestLanguageTag(Object.keys(resources)) || null;
+    // Detect device language safely
+    const bestMatch = RNLocalize.findBestLanguageTag(
+      Object.keys(resources)
+    );
 
-    // Determine language: savedLang > best detected > fallback
-    const defaultLang = savedLang || bestLanguageTag || fallback;
+    // Extract string ONLY (very important)
+    const detectedLang = bestMatch?.languageTag?.split("-")[0];
 
-    console.log("Detected language:", defaultLang);
+    // Final language MUST be STRING
+    const finalLang =
+      savedLang ||
+      detectedLang ||
+      fallbackLang;
 
-    // Disable RTL completely for all languages including Arabic
+    console.log("i18n language:", finalLang);
+
+    // Disable RTL globally (even for Arabic)
     I18nManager.allowRTL(false);
     I18nManager.forceRTL(false);
 
@@ -45,39 +51,41 @@ export const setI18nConfig = async () => {
       .use(initReactI18next)
       .init({
         resources,
-        lng: defaultLang,
-        fallbackLng: fallback,
+
+        lng: finalLang,              // ✅ STRING ONLY
+        fallbackLng: [fallbackLang], // ✅ ARRAY ONLY
+
+        compatibilityJSON: "v3",
         interpolation: {
           escapeValue: false,
         },
-        compatibilityJSON: 'v3', // Add this for better React Native support
       });
 
-    console.log("i18n initialized with languages:", Object.keys(resources));
-    console.log("RTL disabled for all languages");
+    console.log("i18n initialized successfully");
   } catch (error) {
     console.error("Error initializing i18n:", error);
   }
 };
 
+/* ---------------- CHANGE LANGUAGE ---------------- */
+
 export const changeLanguage = async (lang) => {
   if (!lang || typeof lang !== "string") {
-    console.warn("changeLanguage: invalid language code", lang);
+    console.warn("Invalid language code:", lang);
     return;
   }
-  
+
   try {
-    // Disable RTL when changing language as well
     I18nManager.allowRTL(false);
     I18nManager.forceRTL(false);
-    
+
     await AsyncStorage.setItem(LANG_KEY, lang);
     await i18n.changeLanguage(lang);
-    
-    console.log(`Language changed to: ${lang}, RTL disabled`);
+
+    console.log("Language changed to:", lang);
   } catch (error) {
     console.error("Error changing language:", error);
   }
 };
 
-export default setI18nConfig;
+export default i18n;

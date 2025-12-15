@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import LayoutNavigator from "./components/LayoutNavigator";
-import "./global.css"
-import setI18nConfig from "./i18n";
-
+import "./global.css";
+import { setI18nConfig } from "./i18n";
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
