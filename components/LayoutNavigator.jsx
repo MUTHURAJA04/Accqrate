@@ -47,6 +47,9 @@ import EditSalesPerson from '../Screens/SalesPerson/EditSalesPerson';Sales
 import Sales from '../Screens/Sales';
 import SetupPos from '../Screens/POS/SetupPos';
 import Invoice from '../Screens/Invoice';
+import BarcodeScan from '../Screens/POS/BarcodeScan';
+
+
 
 
 
@@ -128,7 +131,8 @@ const LayoutNavigator = () => {
       <Stack.Screen name="Sales" component={withSwipeableWithLayout(Sales, { showHeader: true, showBottom: false, headerTitle: "Choose the Terminal"})}/>
       <Stack.Screen name="SetupPos" component={withSwipeableWithLayout(SetupPos,{ showHeader: true, showBottom: false, headerTitle: "Set-ups"})}/>
       <Stack.Screen name="Invoice"  component={withSwipeableWithLayout(Invoice, { showHeader: true, showBottom: false, headerTitle: "Invoice" })} />  
-
+      <Stack.Screen name="BarcodeScan" component={withSwipeableWithLayout(BarcodeScan, { showHeader: true, showBottom: false, headerTitle: "Barcode Scan" })} />  
+    
     </Stack.Navigator>
   );
 };
