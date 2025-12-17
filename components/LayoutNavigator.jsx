@@ -48,6 +48,10 @@ import Sales from '../Screens/Sales';
 import SetupPos from '../Screens/POS/SetupPos';
 import Invoice from '../Screens/Invoice';
 import BarcodeScan from '../Screens/POS/BarcodeScan';
+import ManualSelection from '../Screens/POS/ManualSelection';
+import Checkout from '../Screens/POS/Checkout';
+import Pospayment from '../Screens/POS/Pospayment';
+
 
 
 
@@ -132,7 +136,10 @@ const LayoutNavigator = () => {
       <Stack.Screen name="SetupPos" component={withSwipeableWithLayout(SetupPos,{ showHeader: true, showBottom: false, headerTitle: "Set-ups"})}/>
       <Stack.Screen name="Invoice"  component={withSwipeableWithLayout(Invoice, { showHeader: true, showBottom: false, headerTitle: "Invoice" })} />  
       <Stack.Screen name="BarcodeScan" component={withSwipeableWithLayout(BarcodeScan, { showHeader: true, showBottom: false, headerTitle: "Barcode Scan" })} />  
-    
+      <Stack.Screen name="ManualSelection" component={withSwipeableWithLayout(ManualSelection, { showHeader: true, showBottom: false, headerTitle: "Manual Selection" })} />  
+      <Stack.Screen name="Checkout" component={withSwipeableWithLayout(Checkout, { showHeader: true, showBottom: false, headerTitle: "Checkout" })} />      
+      <Stack.Screen name="Pospayment" component={withSwipeableWithLayout(Pospayment, { showHeader: true, showBottom: false, headerTitle: "Payment" })} />        
+
     </Stack.Navigator>
   );
 };

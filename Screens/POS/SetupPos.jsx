@@ -37,7 +37,7 @@ const SetupPos = () => {
       <TouchableOpacity
         activeOpacity={0.85}
         className="bg-blue-50 rounded-2xl p-6 mb-5 flex-row items-center shadow-sm"
-        onPress={() => navigation.navigate("ManualSelect")}
+        onPress={() => navigation.navigate("ManualSelection")}
       >
         {/* Icon */}
         <View className="mr-5">
