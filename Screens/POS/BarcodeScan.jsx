@@ -6,7 +6,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 const BarcodeScan = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const { code: scannedCode = "", initialData, onSaveProduct, isEdit = false } = route?.params || {};
+  const { code: scannedCode = "", initialData, onSaveProduct, isEdit = false, fromInvoice = false } = route?.params || {};
 
   const [code, setCode] = useState(initialData?.code || scannedCode || "");
   const [productDesc, setProductDesc] = useState(initialData?.productDesc || "");
@@ -60,12 +60,28 @@ const BarcodeScan = () => {
     };
 
     if (onSaveProduct) {
-      // Direct callback - Invoice passed it
+      // Save product via callback - updates Invoice state immediately
       onSaveProduct(product);
-      navigation.goBack();
+      
+      // Navigation logic:
+      // - From Invoice (scanning/editing): go back once
+      // - From ManualSelection: go back twice to reach Invoice
+      if (fromInvoice) {
+        navigation.goBack();
+      } else {
+        // Coming from ManualSelection - go back twice
+        // First goBack() returns to ManualSelection
+        navigation.goBack();
+        // Second goBack() returns to Invoice (state already updated via callback)
+        // Use minimal delay to reduce flash
+        setTimeout(() => {
+          if (navigation.canGoBack()) {
+            navigation.goBack();
+          }
+        }, 50);
+      }
     } else {
-      // No callback - navigate back to Invoice with product in params
-      // Invoice will pick it up via useFocusEffect
+      // Fallback: navigate with product in params
       navigation.navigate("Invoice", { savedProduct: product });
     }
   };

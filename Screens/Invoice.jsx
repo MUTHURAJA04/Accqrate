@@ -39,7 +39,7 @@ const Invoice = () => {
         navigation.setParams({ rescan: false });
       }
       
-      // Handle product saved from BarcodeScan (when coming from ManualSelection)
+      // Handle product saved from BarcodeScan (fallback when no callback)
       if (route?.params?.savedProduct) {
         handleSaveProduct(route.params.savedProduct);
         navigation.setParams({ savedProduct: null });
@@ -47,19 +47,22 @@ const Invoice = () => {
     }, [route?.params?.rescan, route?.params?.savedProduct, navigation])
   );
 
-  const handleSaveProduct = (product) => {
+  // Memoize handleSaveProduct to ensure stable reference
+  const handleSaveProduct = useCallback((product) => {
     setScannedProducts((prev) => {
       const existingIndex = prev.findIndex(p => p.code === product.code);
 
       if (existingIndex >= 0) {
+        // Update existing product
         const updated = [...prev];
         updated[existingIndex] = product;
         return updated;
       } else {
+        // Add new product - this preserves all previous products
         return [...prev, product];
       }
     });
-  };
+  }, []);
 
   const codeScanner = useCodeScanner({
     codeTypes: ["qr", "ean-13", "code-128"],
@@ -75,6 +78,8 @@ const Invoice = () => {
         code: value,
         initialData: existingProduct,
         onSaveProduct: handleSaveProduct,
+        isEdit: !!existingProduct, // Set isEdit if product exists (for editing)
+        fromInvoice: true, // Flag to indicate coming from Invoice (scanning)
       });
     },
   });
@@ -218,6 +223,7 @@ const Invoice = () => {
                     initialData: product,
                     isEdit: true,
                     onSaveProduct: handleSaveProduct,
+                    fromInvoice: true, // Flag to indicate coming from Invoice
                   });
                 }}
                 activeOpacity={0.7}
@@ -303,7 +309,7 @@ const Invoice = () => {
           )}
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("ManualSelection")}
+            onPress={() => navigation.navigate("ManualSelection", { onSaveProduct: handleSaveProduct })}
             className="border border-blue-600 py-3 rounded-xl items-center"
           >
             <Text className="text-blue-600 text-lg font-medium">Enter Product Manually</Text>

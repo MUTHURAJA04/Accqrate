@@ -8,11 +8,13 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { PRODUCTS } from "../../DATA/products";
 
 const ManualSelection = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const { onSaveProduct } = route?.params || {};
 
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -40,8 +42,8 @@ const ManualSelection = () => {
   });
 
   // 🔥 MAIN FIXED FLOW
-  // ManualSelection only redirects - it doesn't save
-  // Invoice will handle the save via navigation listener
+  // ManualSelection passes the onSaveProduct callback to BarcodeScan
+  // This ensures products are added correctly without losing existing products
   const onSelectProduct = product => {
     navigation.navigate("BarcodeScan", {
       initialData: {
@@ -53,7 +55,7 @@ const ManualSelection = () => {
         taxPercent: product.taxPercent || 0,
       },
       isEdit: false, // ✅ ADD MODE
-      // Note: onSaveProduct will be handled by Invoice via navigation listener
+      onSaveProduct: onSaveProduct, // Pass the callback from Invoice
     });
   };
 
