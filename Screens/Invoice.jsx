@@ -38,7 +38,13 @@ const Invoice = () => {
         setCameraOpen(true);
         navigation.setParams({ rescan: false });
       }
-    }, [route?.params?.rescan])
+      
+      // Handle product saved from BarcodeScan (when coming from ManualSelection)
+      if (route?.params?.savedProduct) {
+        handleSaveProduct(route.params.savedProduct);
+        navigation.setParams({ savedProduct: null });
+      }
+    }, [route?.params?.rescan, route?.params?.savedProduct, navigation])
   );
 
   const handleSaveProduct = (product) => {
@@ -203,8 +209,18 @@ const Invoice = () => {
           {scannedProducts.map((product, index) => {
             const productTax = (parseFloat(product.total || 0) * TAX_RATE).toFixed(3);
             return (
-              <View
+              <TouchableOpacity
                 key={`${product.code}-${index}`}
+                onPress={() => {
+                  // Edit product - navigate to BarcodeScan with edit mode
+                  navigation.navigate("BarcodeScan", {
+                    code: product.code,
+                    initialData: product,
+                    isEdit: true,
+                    onSaveProduct: handleSaveProduct,
+                  });
+                }}
+                activeOpacity={0.7}
                 className="bg-gray-50 p-4 rounded-xl mb-3 flex-row justify-between items-center"
               >
                 <View className="flex-1 pr-3">
@@ -225,13 +241,16 @@ const Invoice = () => {
                 <View className="items-end">
                   <Text className="font-bold text-gray-900 text-lg">₹{product.total}</Text>
                   <TouchableOpacity
-                    onPress={() => removeProduct(product.code)}
+                    onPress={(e) => {
+                      e.stopPropagation(); // Prevent triggering parent TouchableOpacity
+                      removeProduct(product.code);
+                    }}
                     className="mt-2 p-1"
                   >
                     <Trash2 size={18} color="#dc2626" />
                   </TouchableOpacity>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </ScrollView>

@@ -6,7 +6,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 const BarcodeScan = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const { code: scannedCode = "", initialData, onSaveProduct } = route?.params || {};
+  const { code: scannedCode = "", initialData, onSaveProduct, isEdit = false } = route?.params || {};
 
   const [code, setCode] = useState(initialData?.code || scannedCode || "");
   const [productDesc, setProductDesc] = useState(initialData?.productDesc || "");
@@ -60,10 +60,13 @@ const BarcodeScan = () => {
     };
 
     if (onSaveProduct) {
+      // Direct callback - Invoice passed it
       onSaveProduct(product);
       navigation.goBack();
     } else {
-      Alert.alert("Error", "Cannot save product. Please try again.");
+      // No callback - navigate back to Invoice with product in params
+      // Invoice will pick it up via useFocusEffect
+      navigation.navigate("Invoice", { savedProduct: product });
     }
   };
 
@@ -77,7 +80,7 @@ const BarcodeScan = () => {
       keyboardShouldPersistTaps="handled"
     >
       <Text className="text-2xl font-bold mb-6">
-        {initialData ? "Edit Product" : "Add Product"}
+        {isEdit ? "Edit Product" : "Add Product"}
       </Text>
 
       <View className="space-y-4">
@@ -177,7 +180,7 @@ const BarcodeScan = () => {
         className="bg-blue-600 py-4 rounded-xl mt-8"
       >
         <Text className="text-white text-center text-lg font-semibold">
-          {initialData ? "Update" : "Save Product"}
+          {isEdit ? "Update" : "Save Product"}
         </Text>
       </TouchableOpacity>
 
