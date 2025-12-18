@@ -1,18 +1,48 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { View, Text, TouchableOpacity, Alert, Linking, ScrollView } from "react-native";
 import { Camera, useCameraDevice, useCodeScanner } from "react-native-vision-camera";
 import { Smartphone, X, Trash2 } from "lucide-react-native";
 import { useNavigation, useFocusEffect, useRoute } from "@react-navigation/native";
+import { saveProducts, loadProducts, clearProducts, deleteProduct } from "../utils/invoiceStorage";
 
-const TAX_RATE = 0.15; // 15%
+// Constants
+const TAX_RATE = 0.15; // 15% tax rate
 
 const Invoice = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const [cameraOpen, setCameraOpen] = useState(false);
   const [scannedProducts, setScannedProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Loading state for AsyncStorage
 
   const device = useCameraDevice("back");
+
+  // Load products from AsyncStorage when component mounts
+  useEffect(() => {
+    const loadSavedProducts = async () => {
+      try {
+        const savedProducts = await loadProducts();
+        if (savedProducts.length > 0) {
+          setScannedProducts(savedProducts);
+        }
+      } catch (error) {
+        console.error('Error loading products:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadSavedProducts();
+  }, []);
+
+  // Save products to AsyncStorage whenever they change
+  useEffect(() => {
+    if (!isLoading && scannedProducts.length >= 0) {
+      saveProducts(scannedProducts).catch(error => {
+        console.error('Error saving products:', error);
+      });
+    }
+  }, [scannedProducts, isLoading]);
 
   const openCamera = async () => {
     let permission = await Camera.getCameraPermissionStatus();
@@ -47,18 +77,23 @@ const Invoice = () => {
     }, [route?.params?.rescan, route?.params?.savedProduct, navigation])
   );
 
-  // Memoize handleSaveProduct to ensure stable reference
+  /**
+   * Save or update a product
+   * - If product with same code exists: updates it
+   * - If new product: adds it to the list
+   * Products are automatically saved to AsyncStorage via useEffect
+   */
   const handleSaveProduct = useCallback((product) => {
     setScannedProducts((prev) => {
       const existingIndex = prev.findIndex(p => p.code === product.code);
 
       if (existingIndex >= 0) {
-        // Update existing product
+        // Update existing product - replace it in the array
         const updated = [...prev];
         updated[existingIndex] = product;
         return updated;
       } else {
-        // Add new product - this preserves all previous products
+        // Add new product - append to existing products
         return [...prev, product];
       }
     });
@@ -84,6 +119,11 @@ const Invoice = () => {
     },
   });
 
+  /**
+   * Handle "Finished All" button press
+   * Validates products exist, then navigates to Checkout screen
+   * Products are already saved in AsyncStorage, so they persist
+   */
   const onFinishedAllPress = () => {
     if (scannedProducts.length === 0) {
       Alert.alert("No Products Scanned", "Please scan at least one product before finishing.");
@@ -100,11 +140,16 @@ const Invoice = () => {
           onPress: () => {
             setCameraOpen(false);
 
+            // Calculate total amount
+            const totalAmount = scannedProducts.reduce((sum, p) => sum + parseFloat(p.total || 0), 0);
+            
             // Delay navigation slightly to allow camera to close and avoid black screen
-            setTimeout(() => {
+            setTimeout(async () => {
               console.log("✅ FINAL POS PRODUCTS:", scannedProducts);
-              const totalAmount = scannedProducts.reduce((sum, p) => sum + parseFloat(p.total || 0), 0);
               console.log("Total amount: ₹", totalAmount.toFixed(2));
+              
+              // Navigate to Checkout with products and total
+              // Note: Products remain in AsyncStorage until checkout is completed
               navigation.navigate("Checkout", { scannedProducts, totalAmount });
             }, 300);
           },
@@ -113,7 +158,11 @@ const Invoice = () => {
     );
   };
 
-  const removeProduct = (productCode) => {
+  /**
+   * Remove a single product
+   * Shows confirmation dialog, then removes product from state and AsyncStorage
+   */
+  const removeProduct = async (productCode) => {
     Alert.alert(
       "Remove Product",
       "Are you sure you want to remove this product?",
@@ -122,15 +171,27 @@ const Invoice = () => {
         {
           text: "Remove",
           style: "destructive",
-          onPress: () => {
-            setScannedProducts(prev => prev.filter(p => p.code !== productCode));
+          onPress: async () => {
+            try {
+              // Update state and AsyncStorage
+              const updatedProducts = await deleteProduct(scannedProducts, productCode);
+              setScannedProducts(updatedProducts);
+            } catch (error) {
+              // Fallback: just update state if AsyncStorage fails
+              setScannedProducts(prev => prev.filter(p => p.code !== productCode));
+              Alert.alert("Error", "Failed to delete product from storage");
+            }
           },
         },
       ]
     );
   };
 
-  const clearAllProducts = () => {
+  /**
+   * Clear all products
+   * Shows confirmation dialog, then clears all products from state and AsyncStorage
+   */
+  const clearAllProducts = async () => {
     if (scannedProducts.length === 0) return;
 
     Alert.alert(
@@ -141,7 +202,18 @@ const Invoice = () => {
         {
           text: "Clear All",
           style: "destructive",
-          onPress: () => setScannedProducts([]),
+          onPress: async () => {
+            try {
+              // Clear from AsyncStorage first
+              await clearProducts();
+              // Then clear state
+              setScannedProducts([]);
+            } catch (error) {
+              // Fallback: just clear state if AsyncStorage fails
+              setScannedProducts([]);
+              Alert.alert("Error", "Failed to clear products from storage");
+            }
+          },
         },
       ]
     );
@@ -186,10 +258,18 @@ const Invoice = () => {
     );
   }
 
-  // Total amount for all products
+  // Calculate totals
   const totalAmount = scannedProducts.reduce((sum, p) => sum + parseFloat(p.total || 0), 0);
-  // Total tax amount for all products
   const totalTax = scannedProducts.reduce((sum, p) => sum + (parseFloat(p.total || 0) * TAX_RATE), 0);
+
+  // Show loading state while products are being loaded
+  if (isLoading) {
+    return (
+      <View className="flex-1 justify-center items-center bg-white">
+        <Text className="text-gray-600">Loading products...</Text>
+      </View>
+    );
+  }
 
   return (
     <View className="flex-1 bg-white">

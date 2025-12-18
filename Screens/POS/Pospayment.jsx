@@ -7,7 +7,9 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Alert,
 } from 'react-native';
+import { clearProducts } from '../../utils/invoiceStorage';
 
 const Pospayment = ({ route, navigation }) => {
   const totalAmount = route.params?.totalAmount || 0;
@@ -33,21 +35,56 @@ const Pospayment = ({ route, navigation }) => {
     return parseFloat(num).toFixed(3);
   };
 
-  const handleTender = () => {
+  /**
+   * Handle payment completion
+   * Validates payment, then clears invoice products from AsyncStorage
+   * and navigates back to Invoice (which will be empty)
+   */
+  const handleTender = async () => {
+    // Validate payment amounts
     if (totalPaid < totalAmount) {
-      alert('Paid amount is less than total amount.');
+      Alert.alert('Payment Error', 'Paid amount is less than total amount.');
       return;
     }
     if (received < cashVal) {
-      alert('Received amount is less than cash payment amount.');
+      Alert.alert('Payment Error', 'Received amount is less than cash payment amount.');
       return;
     }
-    alert(
-      `Payment successful!\nPaid: ${formatAmount(
-        totalPaid,
-      )} BHD\nReturn: ${formatAmount(returnAmount)}`,
-    );
-    navigation.goBack();
+
+    try {
+      // Clear invoice products from AsyncStorage after successful payment
+      await clearProducts();
+      
+      // Show success message
+      Alert.alert(
+        'Payment Successful!',
+        `Paid: ${formatAmount(totalPaid)} BHD\nReturn: ${formatAmount(returnAmount)} BHD`,
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              // Navigate back to Invoice (products are now cleared)
+              navigation.navigate('Invoice');
+            },
+          },
+        ]
+      );
+    } catch (error) {
+      console.error('Error clearing products after payment:', error);
+      // Still show success and navigate even if storage clear fails
+      Alert.alert(
+        'Payment Successful!',
+        `Paid: ${formatAmount(totalPaid)} BHD\nReturn: ${formatAmount(returnAmount)} BHD`,
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              navigation.navigate('Invoice');
+            },
+          },
+        ]
+      );
+    }
   };
 
   return (
