@@ -91,7 +91,7 @@ const BarcodeScan = () => {
 
   return (
     <ScrollView
-      className="bg-white px-6 py-8 flex-1"
+      className="bg-white px-6 flex-1"
       showsVerticalScrollIndicator={false}
       keyboardShouldPersistTaps="handled"
     >

@@ -1,19 +1,7 @@
-/**
- * Invoice Storage Utility
- * Handles all AsyncStorage operations for invoice products
- * Makes it easy to save, load, delete, and reset invoice data
- */
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Storage key for invoice products
 const INVOICE_PRODUCTS_KEY = '@invoice_products';
 
-/**
- * Save products to AsyncStorage
- * @param {Array} products - Array of product objects to save
- * @returns {Promise<void>}
- */
 export const saveProducts = async (products) => {
   try {
     const jsonProducts = JSON.stringify(products);
@@ -25,10 +13,6 @@ export const saveProducts = async (products) => {
   }
 };
 
-/**
- * Load products from AsyncStorage
- * @returns {Promise<Array>} Array of products, or empty array if none found
- */
 export const loadProducts = async () => {
   try {
     const jsonProducts = await AsyncStorage.getItem(INVOICE_PRODUCTS_KEY);
@@ -44,10 +28,6 @@ export const loadProducts = async () => {
   }
 };
 
-/**
- * Delete all products from AsyncStorage
- * @returns {Promise<void>}
- */
 export const clearProducts = async () => {
   try {
     await AsyncStorage.removeItem(INVOICE_PRODUCTS_KEY);
@@ -58,12 +38,6 @@ export const clearProducts = async () => {
   }
 };
 
-/**
- * Delete a specific product by code
- * @param {Array} currentProducts - Current array of products
- * @param {string} productCode - Code of product to delete
- * @returns {Promise<Array>} Updated array of products
- */
 export const deleteProduct = async (currentProducts, productCode) => {
   try {
     const updatedProducts = currentProducts.filter(p => p.code !== productCode);
@@ -76,3 +50,27 @@ export const deleteProduct = async (currentProducts, productCode) => {
   }
 };
 
+export const saveInvoiceWithAutoNo = async (products, totalAmount, totalTax) => {
+  let invoiceCounter = 1; 
+  try {
+   // Generate simple sequential invoice number
+    const invoiceNo = `INV_${invoiceCounter++}`;
+
+    const invoiceData = {
+      invoiceNo,
+      products,
+      totalAmount,
+      totalTax,
+      totalPayable: totalAmount + totalTax,
+      timestamp: new Date().toISOString(),
+    };
+
+    const storageKey = `@invoice_${invoiceNo}`;
+    await AsyncStorage.setItem(storageKey, JSON.stringify(invoiceData));
+    console.log('✅ Invoice saved with number:', invoiceNo);
+    return invoiceNo;
+  } catch (error) {
+    console.error('❌ Error saving invoice:', error);
+    throw error;
+  }
+};

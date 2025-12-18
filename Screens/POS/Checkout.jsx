@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { Trash2 } from "lucide-react-native";
-
+import { saveInvoiceWithAutoNo } from  "../../utils/invoiceStorage";
 const Checkout = () => {
   const route = useRoute();
   const navigation = useNavigation();
@@ -66,17 +66,21 @@ const Checkout = () => {
   };
 
   // Proceed button handler
-  const handleProceed = () => {
-    if (scannedProducts.length === 0) {
-      Alert.alert('No products', 'Please add products before proceeding.');
-      return;
-    }
-    // TODO: Navigate to payment or order confirmation screen
-    console.log('Proceeding with total amount:', totalAmount + totalTax);
-    // Alert.alert('Proceed', `Total amount to pay: ₹${(totalAmount + totalTax).toFixed(3)}`);
-    navigation.navigate('Pospayment', { totalAmount: totalAmount + totalTax });
-  };
+const handleProceed = async () => {
+  if (scannedProducts.length === 0) {
+    Alert.alert('No products', 'Please add products before proceeding.');
+    return;
+  }
 
+  try {
+    const invoiceNo = await saveInvoiceWithAutoNo(scannedProducts, totalAmount, totalTax);
+    Alert.alert('Invoice saved', `Invoice Number: ${invoiceNo}`);
+
+    navigation.navigate('Pospayment', { totalAmount: totalAmount + totalTax, invoiceNo });
+  } catch {
+    Alert.alert('Error', 'Failed to save invoice data. Please try again.');
+  }
+};
   return (
     <View className="flex-1 bg-white">
       <ScrollView

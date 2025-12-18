@@ -3,7 +3,7 @@ export const PRODUCTS = [
   {
     code: "100001008",
     productDesc: "Sports Shoes",
-    unitPrice: 24348,
+    unitPrice: 243,
     uom: "pcs",
     taxPercent: 5,
     image: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",
@@ -11,7 +11,7 @@ export const PRODUCTS = [
   {
     code: "100001017",
     productDesc: "Cricket Bat",
-    unitPrice: 11304,
+    unitPrice: 114,
     uom: "pcs",
     taxPercent: 5,
     image: "https://images.pexels.com/photos/1838623/pexels-photo-1838623.jpeg",
@@ -19,7 +19,7 @@ export const PRODUCTS = [
   {
     code: "100001016",
     productDesc: "Badminton Shuttle",
-    unitPrice: 11304,
+    unitPrice: 1104,
     uom: "box",
     taxPercent: 5,
     image: "https://images.pexels.com/photos/209975/pexels-photo-209975.jpeg",
@@ -27,7 +27,7 @@ export const PRODUCTS = [
   {
     code: "100001010",
     productDesc: "Badminton Racket",
-    unitPrice: 12000,
+    unitPrice: 1200,
     uom: "pcs",
     taxPercent: 5,
     image: "https://images.pexels.com/photos/3657154/pexels-photo-3657154.jpeg",
@@ -36,7 +36,7 @@ export const PRODUCTS = [
   {
     code: "100001018",
     productDesc: "Professional Football",
-    unitPrice: 3599,
+    unitPrice: 359,
     uom: "pcs",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg",
@@ -44,7 +44,7 @@ export const PRODUCTS = [
   {
     code: "100001019",
     productDesc: "Basketball",
-    unitPrice: 4299,
+    unitPrice: 499,
     uom: "pcs",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/1080882/pexels-photo-1080882.jpeg",
@@ -52,7 +52,7 @@ export const PRODUCTS = [
   {
     code: "100001020",
     productDesc: "Yoga Mat",
-    unitPrice: 2499,
+    unitPrice: 249,
     uom: "pcs",
     taxPercent: 5,
     image: "https://images.pexels.com/photos/4498602/pexels-photo-4498602.jpeg",
@@ -60,7 +60,7 @@ export const PRODUCTS = [
   {
     code: "100001021",
     productDesc: "Fitness Dumbbell Set (5kg)",
-    unitPrice: 1799,
+    unitPrice: 179,
     uom: "set",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg",
@@ -68,7 +68,7 @@ export const PRODUCTS = [
   {
     code: "100001022",
     productDesc: "Cycling Helmet",
-    unitPrice: 3299,
+    unitPrice: 329,
     uom: "pcs",
     taxPercent: 18,
     image: "https://images.pexels.com/photos/1122060/pexels-photo-1122060.jpeg",
@@ -76,7 +76,7 @@ export const PRODUCTS = [
   {
     code: "100001023",
     productDesc: "Tennis Racket",
-    unitPrice: 8899,
+    unitPrice: 899,
     uom: "pcs",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg",
@@ -84,7 +84,7 @@ export const PRODUCTS = [
   {
     code: "100001024",
     productDesc: "Table Tennis Paddles (Pair)",
-    unitPrice: 2199,
+    unitPrice: 299,
     uom: "pair",
     taxPercent: 5,
     image: "https://images.pexels.com/photos/209975/pexels-photo-209975.jpeg",
@@ -92,7 +92,7 @@ export const PRODUCTS = [
   {
     code: "100001025",
     productDesc: "Swimming Goggles",
-    unitPrice: 1599,
+    unitPrice: 159,
     uom: "pcs",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg",
@@ -100,7 +100,7 @@ export const PRODUCTS = [
   {
     code: "100001026",
     productDesc: "Camping Tent (4 Person)",
-    unitPrice: 12999,
+    unitPrice: 1299,
     uom: "pcs",
     taxPercent: 18,
     image: "https://images.pexels.com/photos/618848/pexels-photo-618848.jpeg",
@@ -108,7 +108,7 @@ export const PRODUCTS = [
   {
     code: "100001027",
     productDesc: "Hiking Backpack",
-    unitPrice: 7599,
+    unitPrice: 759,
     uom: "pcs",
     taxPercent: 18,
     image: "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg",
@@ -116,7 +116,7 @@ export const PRODUCTS = [
   {
     code: "100001028",
     productDesc: "Skateboard",
-    unitPrice: 9499,
+    unitPrice: 999,
     uom: "pcs",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/161850/goofy-sport-fun-boys-161850.jpeg",
@@ -124,7 +124,7 @@ export const PRODUCTS = [
   {
     code: "100001029",
     productDesc: "Boxing Gloves",
-    unitPrice: 4199,
+    unitPrice: 419,
     uom: "pair",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/4761335/pexels-photo-4761335.jpeg",
@@ -132,7 +132,7 @@ export const PRODUCTS = [
   {
     code: "100001030",
     productDesc: "Baseball Bat",
-    unitPrice: 6899,
+    unitPrice: 699,
     uom: "pcs",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/163491/sport-baseball-the-game-play-163491.jpeg",
@@ -140,7 +140,7 @@ export const PRODUCTS = [
   {
     code: "100001031",
     productDesc: "Volleyball",
-    unitPrice: 2899,
+    unitPrice: 299,
     uom: "pcs",
     taxPercent: 12,
     image: "https://images.pexels.com/photos/209956/pexels-photo-209956.jpeg",
@@ -148,7 +148,7 @@ export const PRODUCTS = [
   {
     code: "100001032",
     productDesc: "Golf Club Set",
-    unitPrice: 25499,
+    unitPrice: 2599,
     uom: "set",
     taxPercent: 18,
     image: "https://images.pexels.com/photos/3657154/pexels-photo-3657154.jpeg",
@@ -156,9 +156,45 @@ export const PRODUCTS = [
   {
     code: "100001033",
     productDesc: "Fitness Tracker Watch",
-    unitPrice: 8999,
+    unitPrice: 899,
     uom: "pcs",
     taxPercent: 18,
     image: "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg",
+  },
+];
+
+
+export const BILLS_HISTORY = [
+  {
+    invoiceNo: "IN-66",
+    netAmount: 90.0,
+    taxAmount: 9.0,
+    grossAmount: 99.0,
+    paidAmount: 99.0,
+    status: "Approved",
+  },
+  {
+    invoiceNo: "IN-2500056",
+    netAmount: 30.0,
+    taxAmount: 3.0,
+    grossAmount: 33.0,
+    paidAmount: 0.0,
+    status: "Created",
+  },
+  {
+    invoiceNo: "IN-2500052",
+    netAmount: 24.348,
+    taxAmount: 3.652,
+    grossAmount: 28.0,
+    paidAmount: 0.0,
+    status: "Created",
+  },
+  {
+    invoiceNo: "IN-2500045",
+    netAmount: 24.782,
+    taxAmount: 3.696,
+    grossAmount: 28.478,
+    paidAmount: 28.478,
+    status: "Approved",
   },
 ];

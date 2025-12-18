@@ -51,26 +51,8 @@ import BarcodeScan from '../Screens/POS/BarcodeScan';
 import ManualSelection from '../Screens/POS/ManualSelection';
 import Checkout from '../Screens/POS/Checkout';
 import Pospayment from '../Screens/POS/Pospayment';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import CreditNote from '../Screens/POS/CreditNote';
+import Billshistory from '../Screens/POS/Billshistory';
 
 
 
@@ -96,7 +78,6 @@ const LayoutNavigator = () => {
       <Stack.Screen name="RegistrationSuccess" component={RegistrationSuccess} />
       <Stack.Screen name="PricingPlans" component={PricingPlans} />
       <Stack.Screen name="Payment" component={Payment} />
-
       {/* Profile Sub-screens WITH swipeable layout */}
       <Stack.Screen name="MyProfile" component={withSwipeableWithLayout(MyProfile, {showHeader: true,showBottom: false,headerTitle:"My Profile"})} />
       <Stack.Screen name="CompanyProfile" component={withSwipeableWithLayout(CompanyProfile,{showHeader: true, showBottom: false,headerTitle: "Company Profile"})}/>
@@ -135,10 +116,12 @@ const LayoutNavigator = () => {
       <Stack.Screen name="Sales" component={withSwipeableWithLayout(Sales, { showHeader: true, showBottom: false, headerTitle: "Choose the Terminal"})}/>
       <Stack.Screen name="SetupPos" component={withSwipeableWithLayout(SetupPos,{ showHeader: true, showBottom: false, headerTitle: "Set-ups"})}/>
       <Stack.Screen name="Invoice"  component={withSwipeableWithLayout(Invoice, { showHeader: true, showBottom: false, headerTitle: "Invoice" })} />  
-      <Stack.Screen name="BarcodeScan" component={withSwipeableWithLayout(BarcodeScan, { showHeader: true, showBottom: false, headerTitle: "Barcode Scan" })} />  
-      <Stack.Screen name="ManualSelection" component={withSwipeableWithLayout(ManualSelection, { showHeader: true, showBottom: false, headerTitle: "Manual Selection" })} />  
+      <Stack.Screen name="BarcodeScan" component={withSwipeableWithLayout(BarcodeScan, { showHeader: true, showBottom: false, headerTitle: "POS" })} />  
+      <Stack.Screen name="ManualSelection" component={withSwipeableWithLayout(ManualSelection, { showHeader: true, showBottom: false, headerTitle: "POS" })} />  
       <Stack.Screen name="Checkout" component={withSwipeableWithLayout(Checkout, { showHeader: true, showBottom: false, headerTitle: "Checkout" })} />      
       <Stack.Screen name="Pospayment" component={withSwipeableWithLayout(Pospayment, { showHeader: true, showBottom: false, headerTitle: "Payment" })} />        
+      <Stack.Screen name="CreditNote" component={withSwipeableWithLayout(CreditNote, { showHeader: true, showBottom: false, headerTitle: "Credit Note" })} />         
+      <Stack.Screen name="BillsHistory" component={withSwipeableWithLayout(Billshistory, { showHeader: true, showBottom: false, headerTitle: "Bills History" })} />           
 
     </Stack.Navigator>
   );
